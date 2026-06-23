@@ -86,3 +86,6 @@ InitCodeMarker
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+
+# GDIO License
+/[Aa]ssets/GDIO/[Rr]esources/gdio.license*

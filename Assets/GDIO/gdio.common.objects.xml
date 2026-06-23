@@ -1,0 +1,1944 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>gdio.common.objects</name>
+    </assembly>
+    <members>
+        <member name="T:gdio.common.objects.ApiTypes">
+            <summary>
+            Use this to initialize APIs.
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.GameConnectionDetails">
+            <summary>
+            This class provides information about the currently connected game.  
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.GameConnectionDetails.Addr">
+            <summary>
+            The <see cref="T:System.Net.IPAddress"/> of the connected game./>
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.GameConnectionDetails.Port">
+            <summary>
+            The port number of the connected game.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.GameConnectionDetails.GamePath">
+            <summary>
+            The Application.DataPath of the connected game.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.GameConnectionDetails.IsEditor">
+            <summary>
+            Boolean value if the game is running in an Unity editor instance.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.GameConnectionDetails.Platform">
+            <summary>
+            The Application.Platform of the connected game.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.GameConnectionDetails.UID">
+            <summary>
+            The UID for the AutoPlay Editor instance.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.GameConnectionDetails.Engine">
+            <summary>
+            The Engine of the agent (Unity/Unreal - maybe version).
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.MouseButtons">
+            <summary>
+            Mouse button enumerations to use for input.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.MouseButtons.LEFT">
+            <summary>
+            Left Mouse Button
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.MouseButtons.RIGHT">
+            <summary>
+            Right Mouse Button
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.MouseButtons.MIDDLE">
+            <summary>
+            Middle Mouse Button
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.ScriptExecutionMode">
+            <summary>
+            Lua script execution modes.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.ScriptExecutionMode.Once">
+            <summary>
+            Execute once
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.ScriptExecutionMode.EveryFrame">
+            <summary>
+            Execute every frame
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.ScriptExecutionMode.EveryNthFrames">
+            <summary>
+            Execute every Nth frame
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.ObjectListFilter">
+            <summary>
+            Enumeration to filter objects by.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.ObjectListFilter.UNTAGGED">
+            <summary>
+            Untagged objects, returns their name
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.ObjectListFilter.TAGGED">
+            <summary>
+            TAGGED objects, returns their tag
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.ObjectListFilter.ALL">
+            <summary>
+            All objects, returns tagged and untagged object list
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.COLLISION_EVENT">
+            <summary>
+            The type of collision event recieved.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.COLLISION_EVENT.COLLISION_ENTER">
+            <summary>
+            Colloding object has entered the collision bounds
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.COLLISION_EVENT.COLLISION_STAY">
+            <summary>
+            Colliding object still loated in the collision bounds
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.COLLISION_EVENT.COLLISION_EXIT">
+            <summary>
+            Colliding object exited collision bounds
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.CoordinateConversion">
+            <summary>
+            Enumeration for the type of coordinate conversion.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.CoordinateConversion.None">
+            <summary>
+            None returns the gameObject.transform.position without any conversion
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.CoordinateConversion.Local">
+            <summary>
+            Local returns the gameObject.transform.localposition without any conversion
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.CoordinateConversion.WorldToScreenPoint">
+            <summary>
+            WorldToScreenPoint returns the coordinates of the object transformed from World-To-Screen by the specified Camera.  The default is Camera.main.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.CoordinateConversion.WorldToViewportPoint">
+            <summary>
+            WorldToViewPortPoint returns the coordinates of the object in the screen space of the specified Camera.  The default is Camera.main.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.CoordinateConversion.ScreenToWorldPoint">
+            <summary>
+            ScreenToWorldPoint returns the coordinates of the object in the world space of the specified Camera.  The default is Camera.main.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.CoordinateConversion.ScreenToViewportPoint">
+            <summary>
+            ScreenToViewPortPoint returns the coordinates of the object in the viewport space of the specified Camera.  The default is Camera.main.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.CoordinateConversion.ViewportToWorldPoint">
+            <summary>
+            ScreenToWorldPoint returns the coordinates of the object in the world space of the specified Camera.  The default is Camera.main.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.CoordinateConversion.ViewportToScreenPoint">
+            <summary>
+            ScreenToViewPortPoint returns the coordinates of the object in the viewport space of the specified Camera.  The default is Camera.main.
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.LiteGameObject">
+            <summary>
+            This is a lite version of the GameObject.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.tag">
+            <summary>
+            The Tag of the object.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.Tag">
+            <summary>
+            The Tag of the object.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.activeSelf">
+            <summary>
+            A boolean indicating whether the object is active in the scene.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.ActiveSelf">
+            <summary>
+            A boolean indicating whether the object is active in the scene.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.sceneName">
+            <summary>
+            The Name of the Scene.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.SceneName">
+            <summary>
+            The Name of the Scene.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.scenePath">
+            <summary>
+            The Path of the Scene.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.ScenePath">
+            <summary>
+            The Path of the Scene.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.sceneId">
+            <summary>
+            The Scene ID.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.SceneId">
+            <summary>
+            The Scene ID.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.hashCode">
+            <summary>
+            The Hash Code of the object.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.HashCode">
+            <summary>
+            The Hash Code of the object.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.parentHashCode">
+            <summary>
+            The Hash Code of the Parent object.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.ParentHashCode">
+            <summary>
+            The Hash Code of the Parent object.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.position">
+            <summary>
+            The Absolute Position of the object.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.Position">
+            <summary>
+            The Absolute Position of the object.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.localPosition">
+            <summary>
+            The Local Position of the object.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.LocalPosition">
+            <summary>
+            The Local Position of the object.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.rotation">
+            <summary>
+            The Rotation of the object.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.Rotation">
+            <summary>
+            The Rotation of the object.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.typeFullName">
+            <summary>
+            The Full Type the object.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.TypeFullName">
+            <summary>
+            The Full Type the object.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.hierarchyPath">
+            <summary>
+            The HierarchyPath to the GameObject.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.HierarchyPath">
+            <summary>
+            The HierarchyPath to the GameObject.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.hierarchyPath2">
+            <summary>
+            A second HierarchyPath to the GameObject sometimes used.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.Components">
+            <summary>
+            A list of the Component Types associated with the object.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteGameObject.transform">
+            <summary>
+            Position, rotation, and scale of the object.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.Transform">
+            <summary>
+            Position, rotation, and scale of the object.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteGameObject.ParentInstanceId">
+            <summary>
+            The InstanceId of the parent. InstanceId can be +/- but not zero.
+            So we will set it to zero for root objects that do not have a parent.
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.Vector3">
+            <summary>
+            A representation of 3D vectors and points.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Vector3.x">
+            <summary>
+            The x coordinate of the position.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Vector3.y">
+            <summary>
+            The y coordinate of the position.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Vector3.z">
+            <summary>
+            The z coordinate of the position.
+            </summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Magnitude(gdio.common.objects.Vector3)">
+            <summary>Returns the length of <paramref name="vector"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.SqrMagnitude(gdio.common.objects.Vector3)">
+            <summary>
+            Magnitude squared of the vector.
+            </summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.#ctor">
+            <summary>Creates a zero-initialized Vector3.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.#ctor(System.Single,System.Single,System.Single)">
+            <summary>Creates a Vector3 with the given components.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.#ctor(System.Single,System.Single)">
+            <summary>Creates a Vector3 with the given X and Y components and Z = 0.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Equals(gdio.common.objects.Vector3)">
+            <summary>Returns true if this vector equals <paramref name="other"/> exactly (per-component).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Equals(gdio.common.objects.Vector3,System.Single)">
+            <summary>Returns true if the Euclidean distance between this vector and <paramref name="other"/> is within <paramref name="variation"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.op_Subtraction(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Subtracts one vector from another.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.op_Addition(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Adds two vectors component-wise.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.op_UnaryNegation(gdio.common.objects.Vector3)">
+            <summary>Negates every component of the vector.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.op_Multiply(gdio.common.objects.Vector3,System.Single)">
+            <summary>Multiplies a vector by a scalar.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.op_Multiply(System.Single,gdio.common.objects.Vector3)">
+            <summary>Multiplies a scalar by a vector.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.op_Division(gdio.common.objects.Vector3,System.Single)">
+            <summary>Divides a vector by a scalar.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector3.magnitude">
+            <summary>Returns the length of this vector.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector3.sqrMagnitude">
+            <summary>Returns the squared length of this vector (faster than <see cref="P:gdio.common.objects.Vector3.magnitude"/> when only comparing distances).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector3.normalized">
+            <summary>Returns this vector with a magnitude of 1. Returns zero if the magnitude is too small.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector3.zero">
+            <summary>Shorthand for writing <c>new Vector3(0, 0, 0)</c>.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector3.one">
+            <summary>Shorthand for writing <c>new Vector3(1, 1, 1)</c>.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector3.forward">
+            <summary>The forward direction in Unreal (positive X axis).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector3.back">
+            <summary>The backward direction in Unreal (negative X axis).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector3.up">
+            <summary>The up direction in Unreal (positive Z axis).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector3.down">
+            <summary>The down direction in Unreal (negative Z axis).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector3.right">
+            <summary>The right direction in Unreal (positive Y axis).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector3.left">
+            <summary>The left direction in Unreal (negative Y axis).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Distance(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Returns the distance between <paramref name="a"/> and <paramref name="b"/>.</summary>
+            <param name="a">First point.</param>
+            <param name="b">Second point.</param>
+            <returns>Distance between the two points.</returns>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Dot(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Returns the dot product of two vectors.</summary>
+            <param name="a">First vector.</param>
+            <param name="b">Second vector.</param>
+            <returns>Scalar dot product.</returns>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Cross(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Returns the cross product of two vectors.</summary>
+            <param name="lhs">Left-hand vector.</param>
+            <param name="rhs">Right-hand vector.</param>
+            <returns>Perpendicular vector.</returns>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Angle(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Returns the unsigned angle in degrees between <paramref name="from"/> and <paramref name="to"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.SignedAngle(gdio.common.objects.Vector3,gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Returns the signed angle in degrees between <paramref name="from"/> and <paramref name="to"/> measured around <paramref name="axis"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Normalize(gdio.common.objects.Vector3)">
+            <summary>Returns the given vector with a magnitude of 1.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Scale(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Multiplies two vectors component-wise.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Lerp(gdio.common.objects.Vector3,gdio.common.objects.Vector3,System.Single)">
+            <summary>Linearly interpolates between <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/>, clamped to [0,1].</summary>
+            <param name="a">Start vector.</param>
+            <param name="b">End vector.</param>
+            <param name="t">Interpolation factor, clamped to [0,1].</param>
+            <returns>Linearly interpolated vector.</returns>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.LerpUnclamped(gdio.common.objects.Vector3,gdio.common.objects.Vector3,System.Single)">
+            <summary>Linearly interpolates between <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/> without clamping.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.MoveTowards(gdio.common.objects.Vector3,gdio.common.objects.Vector3,System.Single)">
+            <summary>Moves <paramref name="current"/> towards <paramref name="target"/> by at most <paramref name="maxDelta"/> units.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Reflect(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Reflects <paramref name="inDir"/> off the surface with the given <paramref name="inNormal"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Project(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Projects <paramref name="vector"/> onto <paramref name="onNormal"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.ProjectOnPlane(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Projects <paramref name="vector"/> onto a plane defined by <paramref name="planeNormal"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.ClampMagnitude(gdio.common.objects.Vector3,System.Single)">
+            <summary>Returns a copy of <paramref name="vector"/> clamped to <paramref name="maxLength"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Min(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Returns a vector whose components are the per-component minimum of <paramref name="lhs"/> and <paramref name="rhs"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Max(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Returns a vector whose components are the per-component maximum of <paramref name="lhs"/> and <paramref name="rhs"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.op_Equality(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Returns true if two vectors are approximately equal using per-component comparison.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.op_Inequality(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Returns true if two vectors are not approximately equal.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:gdio.common.objects.Vector3.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:gdio.common.objects.Vector4">
+            <summary>
+            A representation of 4D vectors and points.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Vector4.x">
+            <summary>
+            The x component.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Vector4.y">
+            <summary>
+            The y component.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Vector4.z">
+            <summary>
+            The z component.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Vector4.w">
+            <summary>
+            The w component.
+            </summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.#ctor">
+            <summary>Creates a zero-initialized Vector4.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>Creates a Vector4 with the given components.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.#ctor(System.Single,System.Single)">
+            <summary>Creates a Vector4 with the given X and Y components and Z = W = 0.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.Equals(gdio.common.objects.Vector4)">
+            <summary>Returns true if this vector equals <paramref name="other"/> exactly (per-component).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.Equals(gdio.common.objects.Vector4,System.Single)">
+            <summary>Returns true if the Euclidean distance between this vector and <paramref name="other"/> is within <paramref name="variation"/>.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector4.magnitude">
+            <summary>Returns the length of this vector.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector4.sqrMagnitude">
+            <summary>Returns the squared length of this vector.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector4.normalized">
+            <summary>Returns this vector with a magnitude of 1. Returns zero if the magnitude is too small.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector4.zero">
+            <summary>Shorthand for writing <c>new Vector4(0, 0, 0, 0)</c>.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector4.one">
+            <summary>Shorthand for writing <c>new Vector4(1, 1, 1, 1)</c>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.Dot(gdio.common.objects.Vector4,gdio.common.objects.Vector4)">
+            <summary>Returns the dot product of two four-dimensional vectors.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.Project(gdio.common.objects.Vector4,gdio.common.objects.Vector4)">
+            <summary>Projects vector <paramref name="a"/> onto vector <paramref name="b"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.Distance(gdio.common.objects.Vector4,gdio.common.objects.Vector4)">
+            <summary>Returns the distance between <paramref name="a"/> and <paramref name="b"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.Lerp(gdio.common.objects.Vector4,gdio.common.objects.Vector4,System.Single)">
+            <summary>Linearly interpolates between <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/>, clamped to [0,1].</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.LerpUnclamped(gdio.common.objects.Vector4,gdio.common.objects.Vector4,System.Single)">
+            <summary>Linearly interpolates between <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/> without clamping.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.MoveTowards(gdio.common.objects.Vector4,gdio.common.objects.Vector4,System.Single)">
+            <summary>Moves <paramref name="current"/> towards <paramref name="target"/> by at most <paramref name="maxDelta"/> units.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.Scale(gdio.common.objects.Vector4,gdio.common.objects.Vector4)">
+            <summary>Multiplies two vectors component-wise.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.Normalize(gdio.common.objects.Vector4)">
+            <summary>Returns the given vector with a magnitude of 1.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.Min(gdio.common.objects.Vector4,gdio.common.objects.Vector4)">
+            <summary>Returns a vector whose components are the per-component minimum of <paramref name="lhs"/> and <paramref name="rhs"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.Max(gdio.common.objects.Vector4,gdio.common.objects.Vector4)">
+            <summary>Returns a vector whose components are the per-component maximum of <paramref name="lhs"/> and <paramref name="rhs"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.op_Addition(gdio.common.objects.Vector4,gdio.common.objects.Vector4)">
+            <summary>Adds two vectors component-wise.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.op_Subtraction(gdio.common.objects.Vector4,gdio.common.objects.Vector4)">
+            <summary>Subtracts one vector from another.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.op_UnaryNegation(gdio.common.objects.Vector4)">
+            <summary>Negates every component of the vector.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.op_Multiply(gdio.common.objects.Vector4,System.Single)">
+            <summary>Multiplies a vector by a scalar.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.op_Multiply(System.Single,gdio.common.objects.Vector4)">
+            <summary>Multiplies a scalar by a vector.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.op_Division(gdio.common.objects.Vector4,System.Single)">
+            <summary>Divides a vector by a scalar.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.op_Equality(gdio.common.objects.Vector4,gdio.common.objects.Vector4)">
+            <summary>Returns true if two vectors are equal using per-component comparison.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.op_Inequality(gdio.common.objects.Vector4,gdio.common.objects.Vector4)">
+            <summary>Returns true if two vectors are not equal.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:gdio.common.objects.Vector4.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:gdio.common.objects.Vector2">
+            <summary>
+            A representation of 2D vectors and points.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Vector2.x">
+            <summary>
+            The x component.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Vector2.y">
+            <summary>
+            The y component.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector2.zero">
+            <summary>
+            Shorthand for writing @@Vector2(0, 0)@@
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector2.magnitude">
+            <summary>
+            Returns the length of this vector (RO).
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector2.sqrMagnitude">
+            <summary>
+            The square magnitude component.
+            </summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.#ctor">
+            <summary>Creates a zero-initialized Vector2.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.#ctor(System.Single,System.Single)">
+            <summary>Creates a Vector2 with the given components.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Distance(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Returns the distance between <paramref name="a"/> and <paramref name="b"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Angle(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Returns the unsigned angle in degrees between <paramref name="from"/> and <paramref name="to"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Dot(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Returns the dot product of two vectors.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Equals(gdio.common.objects.Vector2)">
+            <summary>Returns true if this vector equals <paramref name="other"/> exactly (per-component).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Equals(gdio.common.objects.Vector2,System.Single)">
+            <summary>Returns true if the Euclidean distance between this vector and <paramref name="other"/> is within <paramref name="variation"/>.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector2.normalized">
+            <summary>Returns this vector with a magnitude of 1. Returns zero if the magnitude is too small.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Lerp(gdio.common.objects.Vector2,gdio.common.objects.Vector2,System.Single)">
+            <summary>Linearly interpolates between <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/>, clamped to [0,1].</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.LerpUnclamped(gdio.common.objects.Vector2,gdio.common.objects.Vector2,System.Single)">
+            <summary>Linearly interpolates between <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/> without clamping.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.MoveTowards(gdio.common.objects.Vector2,gdio.common.objects.Vector2,System.Single)">
+            <summary>Moves <paramref name="current"/> towards <paramref name="target"/> by at most <paramref name="maxDelta"/> units.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Scale(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Multiplies two vectors component-wise.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Reflect(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Reflects <paramref name="inDir"/> off the surface with the given <paramref name="inNormal"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Perpendicular(gdio.common.objects.Vector2)">
+            <summary>Returns a vector perpendicular to <paramref name="inDir"/> (rotated 90 degrees counter-clockwise).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.ClampMagnitude(gdio.common.objects.Vector2,System.Single)">
+            <summary>Returns a copy of <paramref name="vector"/> clamped to <paramref name="maxLength"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.SqrMagnitude(gdio.common.objects.Vector2)">
+            <summary>Returns the squared magnitude of <paramref name="vector"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Min(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Returns a vector whose components are the per-component minimum of <paramref name="lhs"/> and <paramref name="rhs"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Max(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Returns a vector whose components are the per-component maximum of <paramref name="lhs"/> and <paramref name="rhs"/>.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector2.one">
+            <summary>Shorthand for writing <c>new Vector2(1, 1)</c>.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector2.up">
+            <summary>Shorthand for writing <c>new Vector2(0, 1)</c>.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector2.down">
+            <summary>Shorthand for writing <c>new Vector2(0, -1)</c>.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector2.left">
+            <summary>Shorthand for writing <c>new Vector2(-1, 0)</c>.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Vector2.right">
+            <summary>Shorthand for writing <c>new Vector2(1, 0)</c>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.op_Addition(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Adds two vectors component-wise.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.op_Subtraction(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Subtracts one vector from another.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.op_UnaryNegation(gdio.common.objects.Vector2)">
+            <summary>Negates every component of the vector.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.op_Multiply(gdio.common.objects.Vector2,System.Single)">
+            <summary>Multiplies a vector by a scalar.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.op_Multiply(System.Single,gdio.common.objects.Vector2)">
+            <summary>Multiplies a scalar by a vector.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.op_Division(gdio.common.objects.Vector2,System.Single)">
+            <summary>Divides a vector by a scalar.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.op_Equality(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Returns true if two vectors are equal using per-component comparison.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.op_Inequality(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Returns true if two vectors are not equal.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:gdio.common.objects.Vector2.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:gdio.common.objects.InputMapOutputTypes">
+            <summary>
+            Enumeration of the InputSystem Map Output Type
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.InputMapOutputTypes.DEBUG">
+            <summary>
+            Outputs string to be used in Console or Debug
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.InputMapOutputTypes.JSON">
+            <summary>
+            Outputs JSON file and returns JSON string
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.InputMapOutputTypes.MULTI">
+            <summary>
+            Outputs JSON file and returns DEBUG string
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.Space">
+            <summary>
+            Enumeration of the Space type
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Space.World">
+            <summary>
+            The World Space enumeration
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Space.Self">
+            <summary>
+            The Self Space enumeration
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.Quaternion">
+            <summary>
+            A representation of 3D rotation. See <see cref="!:https://scriptinghelpers.org/blog/how-to-think-about-quaternions"/> for more information.
+            </summary>
+            <remarks>
+            Under <c>UNREALENGINE</c>, <c>Euler(pitch, yaw, roll)</c> maps to Unreal's FRotator (Z-up, ZYX extrinsic order).
+            <c>eulerAngles</c> returns (Pitch, Yaw, Roll) matching <c>FQuat::Rotator()</c>.
+            Under Unity, <c>Euler(x, y, z)</c> uses YXZ intrinsic order (Y-up).
+            The <c>identity</c> quaternion is (0, 0, 0, 1).
+            </remarks>
+            <param name="x"> The x vector of the rotation.</param>
+            <param name="y"> The y vector of the rotation.</param>
+            <param name="z"> The z vector of the rotation.</param>
+            <param name="w"> A scalar that stores the rotation around the vector.</param>
+        </member>
+        <member name="F:gdio.common.objects.Quaternion.w">
+            <summary>
+            The w component.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Quaternion.x">
+            <summary>
+            The x component.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Quaternion.y">
+            <summary>
+            The y component.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Quaternion.z">
+            <summary>
+            The z component.
+            </summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.#ctor">
+            <summary>Creates a zero-initialized Quaternion.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>Creates a Quaternion with the given components.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Equals(gdio.common.objects.Quaternion)">
+            <summary>Returns true if this quaternion equals <paramref name="other"/> exactly (per-component).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Equals(gdio.common.objects.Quaternion,System.Single)">
+            <summary>Returns true if this quaternion represents the same rotation as <paramref name="other"/> within <paramref name="variation"/> (handles double-cover: q and -q are equivalent).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.EqualsDot(gdio.common.objects.Quaternion)">
+            <summary>Returns true if this quaternion and <paramref name="other"/> are nearly identical based on dot product threshold.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Angle(gdio.common.objects.Quaternion,gdio.common.objects.Quaternion)">
+            <summary>Returns the angle in degrees between rotations <paramref name="a"/> and <paramref name="b"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Dot(gdio.common.objects.Quaternion,gdio.common.objects.Quaternion)">
+            <summary>Returns the dot product of two rotations.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Quaternion.identity">
+            <summary>The identity rotation (no rotation).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Quaternion.magnitude">
+            <summary>Returns the length of this quaternion.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Quaternion.normalized">
+            <summary>Returns this quaternion with a magnitude of 1.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Normalize(gdio.common.objects.Quaternion)">
+            <summary>Converts <paramref name="q"/> to a unit quaternion.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Inverse(gdio.common.objects.Quaternion)">
+            <summary>Returns the inverse of <paramref name="rotation"/> (conjugate of a unit quaternion).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Conjugate(gdio.common.objects.Quaternion)">
+            <summary>Returns the conjugate of <paramref name="q"/> (negates x, y, z components).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Lerp(gdio.common.objects.Quaternion,gdio.common.objects.Quaternion,System.Single)">
+            <summary>Interpolates between <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/> and normalizes the result, clamped to [0,1].</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.LerpUnclamped(gdio.common.objects.Quaternion,gdio.common.objects.Quaternion,System.Single)">
+            <summary>Interpolates between <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/> and normalizes the result without clamping.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Slerp(gdio.common.objects.Quaternion,gdio.common.objects.Quaternion,System.Single)">
+            <summary>Spherically interpolates between <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/>, clamped to [0,1].</summary>
+            <param name="a">Start rotation.</param>
+            <param name="b">End rotation.</param>
+            <param name="t">Interpolation factor, clamped to [0,1].</param>
+            <returns>Spherically interpolated rotation.</returns>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.SlerpUnclamped(gdio.common.objects.Quaternion,gdio.common.objects.Quaternion,System.Single)">
+            <summary>Spherically interpolates between <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/> without clamping.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.AngleAxis(System.Single,gdio.common.objects.Vector3)">
+            <summary>Creates a rotation that rotates <paramref name="angle"/> degrees around <paramref name="axis"/>.</summary>
+            <param name="angle">Angle in degrees.</param>
+            <param name="axis">Axis of rotation (should be normalized).</param>
+            <returns>Rotation of <paramref name="angle"/> degrees around <paramref name="axis"/>.</returns>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.RotateTowards(gdio.common.objects.Quaternion,gdio.common.objects.Quaternion,System.Single,System.Single)">
+            <summary>Rotates <paramref name="from"/> towards <paramref name="to"/> by at most <paramref name="maxDegreesDelta"/> degrees.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.ToAngleAxis(System.Single@,gdio.common.objects.Vector3@)">
+            <summary>Converts this quaternion to angle-axis representation. <paramref name="angle"/> is in degrees.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.op_Multiply(gdio.common.objects.Quaternion,gdio.common.objects.Quaternion)">
+            <summary>Combines two rotations: applies <paramref name="rhs"/> first, then <paramref name="lhs"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.op_Multiply(gdio.common.objects.Quaternion,gdio.common.objects.Vector3)">
+            <summary>Rotates <paramref name="point"/> by <paramref name="rotation"/>.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Quaternion.eulerAngles">
+            <summary>Returns the euler angle representation of this rotation in degrees (Pitch, Yaw, Roll) matching Unreal's FQuat::Rotator() decomposition.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Euler(System.Single,System.Single,System.Single)">
+            <summary>Creates a rotation from Unreal Pitch/Yaw/Roll euler angles in degrees (ZYX extrinsic order, Z-up).</summary>
+            <param name="pitch">Pitch angle in degrees.</param>
+            <param name="yaw">Yaw angle in degrees.</param>
+            <param name="roll">Roll angle in degrees.</param>
+            <returns>Quaternion representing the Unreal FRotator Pitch/Yaw/Roll rotation.</returns>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Euler(gdio.common.objects.Vector3)">
+            <summary>Creates a rotation from Unreal Pitch/Yaw/Roll euler angles supplied as a <see cref="T:gdio.common.objects.Vector3"/> (x=Pitch, y=Yaw, z=Roll).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.LookRotation(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Creates a rotation looking in <paramref name="forward"/> with the given <paramref name="upwards"/> direction. Uses Unreal Z-up convention.</summary>
+            <param name="forward">The direction to look toward.</param>
+            <param name="upwards">The upward direction.</param>
+            <returns>Rotation that looks toward <paramref name="forward"/> with the given up vector.</returns>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.LookRotation(gdio.common.objects.Vector3)">
+            <summary>Creates a rotation looking in <paramref name="forward"/> using the default Unreal up direction.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.FromToRotation(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Creates the shortest rotation from <paramref name="from"/> to <paramref name="to"/>.</summary>
+            <param name="from">Start direction.</param>
+            <param name="to">Target direction.</param>
+            <returns>Shortest rotation from <paramref name="from"/> to <paramref name="to"/>.</returns>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.op_Equality(gdio.common.objects.Quaternion,gdio.common.objects.Quaternion)">
+            <summary>Returns true if two quaternions represent the same rotation.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.op_Inequality(gdio.common.objects.Quaternion,gdio.common.objects.Quaternion)">
+            <summary>Returns true if two quaternions do not represent the same rotation.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:gdio.common.objects.Quaternion.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:gdio.common.objects.Color">
+            <summary>
+            A representation of a Color.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Color.r">
+            <summary>
+            The red value.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Color.g">
+            <summary>
+            The green value.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Color.b">
+            <summary>
+            The blue value.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Color.a">
+            <summary>
+            The alpha (transparency) value.
+            </summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>Creates a color with the given RGBA components.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.#ctor(System.Single,System.Single,System.Single)">
+            <summary>Creates a fully opaque color with the given RGB components.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.Equals(gdio.common.objects.Color)">
+            <summary>Returns true if this color equals <paramref name="other"/> exactly (per-component).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.grayscale">
+            <summary>The perceived luminance of the color (read-only). Unreal uses Rec.709; Unity uses Rec.601.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.maxColorComponent">
+            <summary>Returns the maximum of the r, g, and b components (read-only).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.gamma">
+            <summary>A version of this color converted to gamma space (read-only).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.linear">
+            <summary>A version of this color converted to linear space (read-only).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.Lerp(gdio.common.objects.Color,gdio.common.objects.Color,System.Single)">
+            <summary>Linearly interpolates between colors <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/>, clamped to [0,1].</summary>
+            <param name="a">Start color.</param>
+            <param name="b">End color.</param>
+            <param name="t">Interpolation factor, clamped to [0,1].</param>
+            <returns>Component-wise linearly interpolated color.</returns>
+        </member>
+        <member name="M:gdio.common.objects.Color.LerpUnclamped(gdio.common.objects.Color,gdio.common.objects.Color,System.Single)">
+            <summary>Linearly interpolates between colors <paramref name="a"/> and <paramref name="b"/> by <paramref name="t"/> without clamping.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.RGBToHSV(gdio.common.objects.Color,System.Single@,System.Single@,System.Single@)">
+            <summary>Calculates the hue, saturation, and value of an RGB color.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.HSVToRGB(System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>Creates an RGB color from hue, saturation, and value. Set <paramref name="hdr"/> to true to allow HDR values above 1.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.GammaToLinearSpace(System.Single)">
+            <summary>Converts a single channel value from gamma (sRGB) to linear color space.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.LinearToGammaSpace(System.Single)">
+            <summary>Converts a single channel value from linear to gamma (sRGB) color space.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.red">
+            <summary>Solid red. RGBA is (1, 0, 0, 1).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.green">
+            <summary>Solid green. RGBA is (0, 1, 0, 1).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.blue">
+            <summary>Solid blue. RGBA is (0, 0, 1, 1).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.white">
+            <summary>Solid white. RGBA is (1, 1, 1, 1).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.black">
+            <summary>Solid black. RGBA is (0, 0, 0, 1).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.yellow">
+            <summary>Yellow. Unreal: (1,1,0,1); Unity: (1, 0.92, 0.016, 1).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.cyan">
+            <summary>Cyan. RGBA is (0, 1, 1, 1).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.magenta">
+            <summary>Magenta. RGBA is (1, 0, 1, 1).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.gray">
+            <summary>Gray. RGBA is (0.5, 0.5, 0.5, 1).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.grey">
+            <summary>English spelling of <see cref="P:gdio.common.objects.Color.gray"/>. RGBA is (0.5, 0.5, 0.5, 1).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Color.clear">
+            <summary>Completely transparent. RGBA is (0, 0, 0, 0).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.op_Addition(gdio.common.objects.Color,gdio.common.objects.Color)">
+            <summary>Adds two colors component-wise.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.op_Subtraction(gdio.common.objects.Color,gdio.common.objects.Color)">
+            <summary>Subtracts one color from another component-wise.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.op_Multiply(gdio.common.objects.Color,gdio.common.objects.Color)">
+            <summary>Multiplies two colors component-wise.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.op_Multiply(gdio.common.objects.Color,System.Single)">
+            <summary>Multiplies a color by a scalar.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.op_Multiply(System.Single,gdio.common.objects.Color)">
+            <summary>Multiplies a scalar by a color.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.op_Division(gdio.common.objects.Color,System.Single)">
+            <summary>Divides a color by a scalar.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.op_Equality(gdio.common.objects.Color,gdio.common.objects.Color)">
+            <summary>Returns true if two colors are equal using per-component comparison.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Color.op_Inequality(gdio.common.objects.Color,gdio.common.objects.Color)">
+            <summary>Returns true if two colors are not equal.</summary>
+        </member>
+        <member name="T:gdio.common.objects.RaycastResult">
+            <summary>
+            Structure used to get information back from a raycast.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.RaycastResult.type">
+            <summary>
+            The Type of object hit by the raycase (e.g. Physics).
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.RaycastResult.tag">
+            <summary>
+            The Tag of the object hit by the raycast.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.RaycastResult.name">
+            <summary>
+            The Name of the object hit by the raycast.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.RaycastResult.hasButton">
+            <summary>
+            Boolean of whether the object hit by the raycast has a Button component.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.RaycastResult.point">
+            <summary>
+            The impact point in world space where the ray hit the collider.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.RaycastResult.typeFullName">
+            <summary>
+            The name of the object class (e.g. UnityEngine.GameObject)
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.Collision">
+            <summary>
+            Describes a collision 
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collision.HierarchyPath">
+            <summary>
+            THe HierarchyPath of the GameObject that recieved the OnCollision event
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collision.Timestamp">
+            <summary>
+            The timestamp of when the collision occured
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collision.CollisionType">
+            <summary>
+            The enumeration value of the collision type <see cref="T:gdio.common.objects.COLLISION_EVENT"/>
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collision.contactCount">
+            <summary>
+            The number of contacts in the collision
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collision.contacts">
+            <summary>
+            Array of contacts, <see cref="T:gdio.common.objects.ContactPoint"/>
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collision.gameObject">
+            <summary>
+            The LiteGameObject of the collision, <see cref="T:gdio.common.objects.LiteGameObject"/>
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collision.impulse">
+            <summary>
+            A <see cref="T:gdio.common.objects.Vector3"/> describing the impulse value.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collision.relativeVelocity">
+            <summary>
+            A <see cref="T:gdio.common.objects.Vector3"/> describing the relative velocity value.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collision.rigidbody">
+            <summary>
+            The <see cref="T:gdio.common.objects.Rigidbody"/> of the collision.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collision.transform">
+            <summary>
+            The <see cref="T:gdio.common.objects.Transform"/> of the GameObject.
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.Collider">
+            <summary>
+            The lite version of the UnityEngine.Collider
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collider.attachedRigidbody">
+            <summary>
+            The <see cref="T:gdio.common.objects.Rigidbody"/> that the collider is attached to.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collider.bounds">
+            <summary>
+            The <see cref="T:gdio.common.objects.Bounds"/> of the collider.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collider.contactOffset">
+            <summary>
+            Contact offset value of the collider.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collider.enabled">
+            <summary>
+            Boolean if the collider is enabled or not.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collider.isTrigger">
+            <summary>
+            Boolean if the collider is a trigger or not.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collider.material">
+            <summary>
+            The <see cref="T:gdio.common.objects.PhysicMaterial"/> of the collider.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Collider.sharedMaterial">
+            <summary>
+            The shared <see cref="T:gdio.common.objects.PhysicMaterial"/> of the collider.
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.PhysicMaterial">
+            <summary>
+            Physics material describes how to handle collisions.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.PhysicMaterial.bounciness">
+            <summary>
+            How bouncy a surface is.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.PhysicMaterial.dynamicFriction">
+            <summary>
+            The friction used when already moving.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.PhysicMaterial.staticFriction">
+            <summary>
+            The friction coefficient used when an object is lying on the surface.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.PhysicMaterial.frictionCombine">
+            <summary>
+            Determines how the friction is combined. Unity 2018
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.PhysicMaterial.bounceCombine">
+            <summary>
+            Determines how the bounceiness is combined. Unity 2018
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.Bounds">
+            <summary>Represents an axis-aligned bounding box.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Bounds.center">
+            <summary>The center of the bounding box.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Bounds.extents">
+            <summary>The extents of the bounding box — half the size in each dimension.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Bounds.max">
+            <summary>The maximal point of the bounding box. This is always equal to <c>center + extents</c>.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Bounds.min">
+            <summary>The minimal point of the bounding box. This is always equal to <c>center - extents</c>.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Bounds.size">
+            <summary>The total size of the bounding box. This is always twice the <see cref="F:gdio.common.objects.Bounds.extents"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.Equals(gdio.common.objects.Bounds)">
+            <summary>Returns true if this bounding box has the same center and extents as <paramref name="other"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.SetMinMax(gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Sets the bounds to the smallest box that contains both <paramref name="newMin"/> and <paramref name="newMax"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.Contains(gdio.common.objects.Vector3)">
+            <summary>Returns true if <paramref name="point"/> is inside or on the boundary of the bounding box.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.Intersects(gdio.common.objects.Bounds)">
+            <summary>Returns true if <paramref name="other"/> intersects this bounding box.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.Expand(System.Single)">
+            <summary>Expands the bounds by increasing both min and max by <paramref name="amount"/> / 2 uniformly in all directions.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.Expand(gdio.common.objects.Vector3)">
+            <summary>Expands the bounds by increasing both min and max by <paramref name="amount"/> / 2 per axis.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.Encapsulate(gdio.common.objects.Vector3)">
+            <summary>Grows the bounds to include <paramref name="point"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.Encapsulate(gdio.common.objects.Bounds)">
+            <summary>Grows the bounds to include <paramref name="bounds"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.ClosestPoint(gdio.common.objects.Vector3)">
+            <summary>Returns the closest point on or inside the bounding box to <paramref name="point"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.SqrDistance(gdio.common.objects.Vector3)">
+            <summary>Returns the squared distance from <paramref name="point"/> to the nearest point on the bounding box.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.op_Equality(gdio.common.objects.Bounds,gdio.common.objects.Bounds)">
+            <summary>Returns true if two bounding boxes are equal.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.op_Inequality(gdio.common.objects.Bounds,gdio.common.objects.Bounds)">
+            <summary>Returns true if two bounding boxes are not equal.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:gdio.common.objects.Bounds.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:gdio.common.objects.LiteComponent">
+            <summary>
+            A simplistic version of UnityEngine.Component
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteComponent.gameObject">
+            <summary>
+            The lite version of the gameObject the component is attached to.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteComponent.tag">
+            <summary>
+            The tag of the gameObject
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteComponent.transform">
+            <summary>
+            The transform attached to the gameObject.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteComponent.typeFullName">
+            <summary>
+            The Type fullname of the class.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteComponent.hierarchyPath">
+            <summary>
+            The HierarchyPath of the component.
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.LiteObject">
+            <summary>
+            A simplistic version of UnityEngine.GameObject
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteObject.name">
+            <summary>
+            The name of the object.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteObject.Name">
+            <summary>
+            The name of the object.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LiteObject.instanceId">
+            <summary>
+            The instanceId of the object.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.LiteObject.InstanceId">
+            <summary>
+            The name of the object.
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.Matrix4x4">
+            <summary>
+            A standard 4x4 transformation matrix.
+            </summary>
+            <remarks>
+            Under <c>UNREALENGINE</c>, uses row-major convention: vectors are row vectors multiplied on the left (v * M).
+            Translation is stored in the last row (M[3][0..2]). Matrix multiplication order is left-to-right (A then B = A*B).
+            Under Unity, uses column-major convention: vectors are column vectors (M * v). Translation is in the last column.
+            Computed properties (<c>inverse</c>, <c>transpose</c>, <c>determinant</c>, <c>isIdentity</c>, <c>lossyScale</c>, <c>rotation</c>, <c>decomposeProjection</c>)
+            are marked <c>[IgnoreMember]</c> and are never serialized — use <c>ComputeInverse()</c> / <c>ComputeTranspose()</c> / <c>ComputeDeterminant()</c> in serialized contexts.
+            </remarks>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.decomposeProjection">
+            <summary>Decomposes a projection matrix into near/far plane distances and field-of-view values (read-only, not serialized).</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.determinant">
+            <summary>The determinant of the matrix (read-only, not serialized). Use <c>ComputeDeterminant()</c> in test assertions.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.inverse">
+            <summary>The inverse of this matrix (read-only, not serialized). Use <c>ComputeInverse()</c> in test assertions.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.isIdentity">
+            <summary>Returns <c>true</c> if this matrix is the identity matrix (read-only, not serialized).</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.lossyScale">
+            <summary>The scale component extracted from this matrix (read-only, not serialized, approximation for non-uniform scales).</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.rotation">
+            <summary>The rotation component extracted from this matrix as a Quaternion (read-only, not serialized).</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.transpose">
+            <summary>The transpose of this matrix (read-only, not serialized). Use <c>ComputeTranspose()</c> in test assertions.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m00">
+            <summary>Matrix element at row 0, column 0.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m10">
+            <summary>Matrix element at row 1, column 0.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m20">
+            <summary>Matrix element at row 2, column 0.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m30">
+            <summary>Matrix element at row 3, column 0.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m01">
+            <summary>Matrix element at row 0, column 1.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m11">
+            <summary>Matrix element at row 1, column 1.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m21">
+            <summary>Matrix element at row 2, column 1.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m31">
+            <summary>Matrix element at row 3, column 1.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m02">
+            <summary>Matrix element at row 0, column 2.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m12">
+            <summary>Matrix element at row 1, column 2.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m22">
+            <summary>Matrix element at row 2, column 2.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m32">
+            <summary>Matrix element at row 3, column 2.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m03">
+            <summary>Matrix element at row 0, column 3.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m13">
+            <summary>Matrix element at row 1, column 3.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m23">
+            <summary>Matrix element at row 2, column 3.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Matrix4x4.m33">
+            <summary>Matrix element at row 3, column 3.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.#ctor">
+            <summary>Creates a Matrix4x4 with all elements initialized to NaN.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.#ctor(gdio.common.objects.Vector4,gdio.common.objects.Vector4,gdio.common.objects.Vector4,gdio.common.objects.Vector4)">
+            <summary>Creates a Matrix4x4 from four column vectors.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.GetColumn(System.Int32)">
+            <summary>Returns the column at <paramref name="index"/> as a Vector4.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.GetRow(System.Int32)">
+            <summary>Returns the row at <paramref name="index"/> as a Vector4.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.SetColumn(System.Int32,gdio.common.objects.Vector4)">
+            <summary>Sets the column at <paramref name="index"/> to <paramref name="column"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.SetRow(System.Int32,gdio.common.objects.Vector4)">
+            <summary>Sets the row at <paramref name="index"/> to <paramref name="row"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.ValidTRS">
+            <summary>Returns true if this matrix is a valid TRS matrix (non-zero scale, bottom row is (0,0,0,1)).</summary>
+        </member>
+        <member name="P:gdio.common.objects.Matrix4x4.identity">
+            <summary>Returns the identity matrix.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Matrix4x4.zero">
+            <summary>Returns a matrix with all elements set to zero.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.ComputeDeterminant">
+            <summary>Computes the determinant of this matrix.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.ComputeTranspose">
+            <summary>Returns the transpose of this matrix (rows and columns swapped).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.ComputeInverse">
+            <summary>Returns the inverse of this matrix using the cofactor/adjugate method. Returns <see cref="P:gdio.common.objects.Matrix4x4.zero"/> if the matrix is singular.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.TRS(gdio.common.objects.Vector3,gdio.common.objects.Quaternion,gdio.common.objects.Vector3)">
+            <summary>Creates a TRS matrix from <paramref name="pos"/>, <paramref name="rot"/>, and <paramref name="scale"/> using Unreal row-major convention. Translation is stored in the last row.</summary>
+            <param name="pos">Translation component.</param>
+            <param name="rot">Rotation component.</param>
+            <param name="scale">Scale component.</param>
+            <returns>A TRS transformation matrix.</returns>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.MultiplyPoint(gdio.common.objects.Vector3)">
+            <summary>Transforms <paramref name="point"/> by this matrix using Unreal row-vector convention (v * M), performing perspective divide.</summary>
+            <param name="point">Point in local space.</param>
+            <returns>Point transformed to world space (includes translation).</returns>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.MultiplyPoint3x4(gdio.common.objects.Vector3)">
+            <summary>Transforms <paramref name="point"/> by the upper 3×4 portion of this matrix using Unreal row-vector convention (no perspective divide).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.MultiplyVector(gdio.common.objects.Vector3)">
+            <summary>Transforms direction <paramref name="vector"/> by this matrix ignoring translation, using Unreal row-vector convention.</summary>
+            <param name="vector">Direction vector in local space.</param>
+            <returns>Direction transformed to world space (excludes translation, affected by scale).</returns>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.op_Multiply(gdio.common.objects.Matrix4x4,gdio.common.objects.Matrix4x4)">
+            <summary>Multiplies two matrices using Unreal row-major convention (lhs applied first, then rhs).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.op_Multiply(gdio.common.objects.Matrix4x4,gdio.common.objects.Vector4)">
+            <summary>Multiplies this matrix by vector <paramref name="v"/> using Unreal row-vector convention.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.LookAt(gdio.common.objects.Vector3,gdio.common.objects.Vector3,gdio.common.objects.Vector3)">
+            <summary>Creates a view matrix looking from <paramref name="from"/> towards <paramref name="to"/> using Unreal Z-up convention.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.op_Equality(gdio.common.objects.Matrix4x4,gdio.common.objects.Matrix4x4)">
+            <summary>Returns true if all 16 elements of two matrices are equal.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.op_Inequality(gdio.common.objects.Matrix4x4,gdio.common.objects.Matrix4x4)">
+            <summary>Returns true if any element of two matrices differs.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:gdio.common.objects.Matrix4x4.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="P:gdio.common.objects.Transform.eulerAngles">
+            <summary>The world-space euler angle representation of the rotation.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Transform.localEulerAngles">
+            <summary>The local-space euler angle representation of the local rotation.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Transform.forward">
+            <summary>The world-space forward direction of the transform.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Transform.right">
+            <summary>The world-space right direction of the transform.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Transform.up">
+            <summary>The world-space up direction of the transform.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Transform.TransformPoint(gdio.common.objects.Vector3)">
+            <summary>Transforms <paramref name="point"/> from local space to world space (includes translation and scale).
+            Unreal equivalent: <c>FTransform::TransformPosition</c>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Transform.InverseTransformPoint(gdio.common.objects.Vector3)">
+            <summary>Transforms <paramref name="point"/> from world space to local space (includes translation and scale).
+            Unreal equivalent: <c>FTransform::InverseTransformPosition</c>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Transform.TransformDirection(gdio.common.objects.Vector3)">
+            <summary>Transforms <paramref name="direction"/> from local space to world space, rotation only (not affected by scale or position).
+            Unreal equivalent: <c>FTransform::TransformVectorNoScale</c>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Transform.InverseTransformDirection(gdio.common.objects.Vector3)">
+            <summary>Transforms <paramref name="direction"/> from world space to local space, rotation only (not affected by scale or position).
+            Unreal equivalent: <c>FTransform::InverseTransformVectorNoScale</c>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Transform.TransformVector(gdio.common.objects.Vector3)">
+            <summary>Transforms <paramref name="vector"/> from local space to world space (affected by scale; no translation).
+            Unreal equivalent: <c>FTransform::TransformVector</c>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Transform.InverseTransformVector(gdio.common.objects.Vector3)">
+            <summary>Transforms <paramref name="vector"/> from world space to local space (affected by scale; no translation).
+            Unreal equivalent: <c>FTransform::InverseTransformVector</c>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Transform.Equals(gdio.common.objects.Transform)">
+            <summary>Returns true if this transform's position, rotation, and local TRS data exactly match <paramref name="other"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Transform.Equals(gdio.common.objects.Transform,System.Single,System.Single)">
+            <summary>Returns true if positions are within <paramref name="posVariation"/> and rotation angles differ by less than <paramref name="rotVariation"/> degrees.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Transform.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:gdio.common.objects.Transform.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:gdio.common.objects.Rect">
+            <summary>A 2D rectangle defined by X and Y position, width, and height.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Rect.x">
+            <summary>The X coordinate of the rectangle.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Rect.y">
+            <summary>The Y coordinate of the rectangle.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Rect.width">
+            <summary>The width of the rectangle.</summary>
+        </member>
+        <member name="F:gdio.common.objects.Rect.height">
+            <summary>The height of the rectangle.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.#ctor">
+            <summary>Creates a zero-sized rectangle at the origin.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>Creates a rectangle with the given position and size.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.#ctor(gdio.common.objects.Vector2,gdio.common.objects.Vector2)">
+            <summary>Creates a rectangle with the given position and size vectors.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.#ctor(gdio.common.objects.Rect)">
+            <summary>Creates a copy of <paramref name="source"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.Set(System.Single,System.Single,System.Single,System.Single)">
+            <summary>Sets the position and size of the rectangle.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Rect.xMin">
+            <summary>The minimum X coordinate. Setting this adjusts width to preserve xMax.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Rect.yMin">
+            <summary>The minimum Y coordinate. Setting this adjusts height to preserve yMax.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Rect.xMax">
+            <summary>The maximum X coordinate. Setting this adjusts width.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Rect.yMax">
+            <summary>The maximum Y coordinate. Setting this adjusts height.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Rect.min">
+            <summary>The lower-left corner of the rectangle.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Rect.max">
+            <summary>The upper-right corner of the rectangle.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Rect.center">
+            <summary>The center of the rectangle.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Rect.position">
+            <summary>The lower-left position of the rectangle.</summary>
+        </member>
+        <member name="P:gdio.common.objects.Rect.size">
+            <summary>The width and height of the rectangle.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.MinMaxRect(System.Single,System.Single,System.Single,System.Single)">
+            <summary>Creates a rectangle from min/max coordinates.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.Contains(gdio.common.objects.Vector2)">
+            <summary>Returns true if <paramref name="point"/> is inside the rectangle (xMax and yMax are exclusive).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.Contains(gdio.common.objects.Vector3)">
+            <summary>Returns true if the XY components of <paramref name="point"/> are inside the rectangle (xMax and yMax are exclusive).</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.Overlaps(gdio.common.objects.Rect)">
+            <summary>Returns true if this rectangle overlaps <paramref name="other"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.Overlaps(gdio.common.objects.Rect,System.Boolean)">
+            <summary>Returns true if this rectangle overlaps <paramref name="other"/>. If <paramref name="allowInverse"/> is true, negative-size rectangles are normalized first.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.Equals(gdio.common.objects.Rect)">
+            <summary>Returns true if this rectangle has the same position and size as <paramref name="other"/>.</summary>
+        </member>
+        <member name="M:gdio.common.objects.Rect.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:gdio.common.objects.FileCollisionOption">
+            <summary>
+            Used to choose what happens when a file with a given path already exists.
+            </summary>
+        </member>
+        <member name="M:gdio.common.objects.FileCollisionOptionExtensions.Resolve(gdio.common.objects.FileCollisionOption,System.String)">
+            <summary>
+            Get the file path with the respective collision resolution applied to it.
+            </summary>
+            <param name="option">The collision resolution method to use</param>
+            <param name="path">The path to resolve any collisions for</param>
+            <returns>The file path with the respective collision resolution applied to it</returns>
+            <exception cref="T:System.IO.IOException">When the file already exists and the collision option is FileCollisionOption.ThrowErrorIfExists</exception>
+            <exception cref="T:System.ArgumentException">When the path provided is null or an empty string</exception>
+            <exception cref="T:System.ArgumentException">When the path provided doesn't point to a file</exception>
+        </member>
+        <member name="M:gdio.common.objects.FileCollisionOptionExtensions.GenerateUniqueName(System.String)">
+            <summary>
+            Gets /path/to/file_{N}.ext where N is incremented every time that file already exists
+            </summary>
+            
+            <param name="path">The file path to begin incrementing from</param>
+            <returns>The modified file path that does not collide with the original</returns>
+        </member>
+        <member name="T:gdio.common.objects.LogLevel">
+            <summary>
+            Logging levels used to control Agent-side logging verbosity.
+            Used with api.SetLoggingLevel() and api.LogMessageOnAgent().
+            </summary>
+            <remarks>
+            Higher numeric values indicate more verbose logging. Messages are only logged if their level 
+            is less than or equal to the currently set logging level on the Agent.
+            </remarks>
+            <example>
+            <code>
+            // Set Agent to log warnings and errors only
+            api.SetLoggingLevel(LogLevel.WARN);
+            
+            // Log a debug message (will only appear if level is DEBUG or TRACE)
+            api.LogMessageOnAgent(LogLevel.DEBUG, "Test started");
+            </code>
+            </example>
+        </member>
+        <member name="F:gdio.common.objects.LogLevel.DISABLED">
+            <summary>
+            Disables all logging output from the Agent.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LogLevel.ERROR">
+            <summary>
+            Logs only critical errors that prevent normal operation.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LogLevel.WARN">
+            <summary>
+            Logs warnings and errors. Use for potential issues that don't halt execution.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LogLevel.INFO">
+            <summary>
+            Logs informational messages, warnings, and errors. General operational information.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LogLevel.DEBUG">
+            <summary>
+            Logs detailed debugging information along with info, warnings, and errors.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.LogLevel.TRACE">
+            <summary>
+            Most verbose logging level. Logs all messages including detailed trace information.
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.MethodInfo">
+            <summary>
+            Contains metadata about a method 
+            Provides method signature information including name, return type and parameters
+            </summary>
+            <remarks>
+            Used to inspect available methods on game objects before invoking them with api.CallMethod().
+            Returned as part of a HashSet from GetMethodList() in both Unity and Unreal engines.
+            </remarks>
+        </member>
+        <member name="P:gdio.common.objects.MethodInfo.MethodName">
+            <summary>
+            The name of the method (e.g., "TakeDamage", "SetActive").
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.MethodInfo.ReturnTypeFullName">
+            <summary>
+            The fully qualified return type name (e.g., "System.Void", "System.Single", "UnityEngine.GameObject").
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.MethodInfo.ArgumentNames">
+            <summary>
+            Collection of parameter names in declaration order (e.g., ["amount", "damageType"]).
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.MethodInfo.ArgumentTypeFullNames">
+            <summary>
+            Collection of fully qualified parameter type names in declaration order (e.g., ["System.Single", "System.String"]).
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.MethodInfo.ParentHierarchyPath">
+            <summary>
+            The HierarchyPath to the object or component where this method is declared.
+            Use this path when calling the method with api.CallMethod().
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.PropertyInfo">
+            <summary>
+            Represents property information for a game object retrieved via GameDriver API.
+            Used by GetPropertyList to return properties and their values.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.PropertyInfo.TypeFullName">
+            <summary>
+            The full type name of the property (e.g., "System.Boolean", "gdio.common.objects.Vector3")
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.PropertyInfo.HierarchyPath">
+            <summary>
+            The hierarchy path to this property in the object tree
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.PropertyInfo.DisplayValue">
+            <summary>
+            The property's display value as a human-readable string representation
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.PropertyInfo.Value">
+            <summary>
+            The property value encoded as a byte array, to be autodecoded based on TypeFullName
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.PropertyInfo.Children">
+            <summary>
+            Sub-fields of this property when it is a struct/value type.
+            Null for primitives, strings, enums, and class references.
+            Populated by GetPropertyTree up to the requested depth.
+            </summary>
+        </member>
+        <member name="P:gdio.common.objects.PropertyInfo.IsObjectRef">
+            <summary>
+            True when this property is a class/object reference that can be explored further
+            by calling GetPropertyTree with this node's HierarchyPath. Structs and primitives
+            are never flagged; class types are flagged regardless of whether they have a ToGDIO
+            serialization (which determines whether DisplayValue is populated).
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.UNREAL_HIT_EVENT">
+            <summary>
+            Enumeration for Unreal Engine collision and overlap event types.
+            Used to identify the type of hit or overlap event received from collision callbacks.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.UNREAL_HIT_EVENT.HIT_EVENT">
+            <summary>
+            Hit.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.UNREAL_HIT_EVENT.OVERLAP_BEGIN_EVENT">
+            <summary>
+            Overlap begin
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.UNREAL_HIT_EVENT.OVERLAP_END_EVENT">
+            <summary>
+            Overlap end event.
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.Hit">
+            <summary>
+            Describes a collision 
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Hit.HierarchyPath">
+            <summary>
+            THe HierarchyPath of the GameObject that recieved the OnCollision event
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Hit.Timestamp">
+            <summary>
+            The timestamp of when the collision occured
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Hit.CollisionType">
+            <summary>
+            The enumeration value of the collision type <see cref="T:gdio.common.objects.COLLISION_EVENT"/>
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Hit.Location">
+            <summary>
+            The location in world space where the moving shape would end up against the impacted object, if there is a hit. 
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Hit.Normal">
+            <summary>
+            Normal of the hit in world space, for the object that was swept.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Hit.gameObject">
+            <summary>
+            The LiteGameObject of the collision, <see cref="T:gdio.common.objects.LiteGameObject"/>
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Hit.BlockingHit">
+            <summary>
+            PrimitiveComponent hit by the trace.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.Hit.PenetrationDepth">
+            <summary>
+            If this test started in penetration (bStartPenetrating is true) and a depenetration vector can be computed, this value is the distance along Normal that will result in moving out of penetration.
+            </summary>
+        </member>
+        <member name="T:gdio.common.objects.FGeometry">
+            <summary>
+            Represents Unreal Engine's FGeometry structure for UWidget layout information.
+            Retrieved via api.GetObjectFieldValue() when querying widget geometry properties.
+            </summary>
+            <remarks>
+            Provides position, size, and scale data for Unreal UMG widgets. All position and size values are in slate units.
+            </remarks>
+            <example>
+            <code>
+            // Get widget geometry
+            var geometry = api.GetObjectFieldValue&lt;FGeometry&gt;("//*[@name='MyButton']/@CachedGeometry");
+            Console.WriteLine($"Widget at {geometry.AbsolutePosition}, size {geometry.AbsoluteSize}");
+            </code>
+            </example>
+        </member>
+        <member name="F:gdio.common.objects.FGeometry.AbsolutePosition">
+            <summary>
+            Absolute screen-space position of the widget in slate units.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.FGeometry.AbsoluteSize">
+            <summary>
+            Absolute screen-space size of the widget in slate units.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.FGeometry.LocalSize">
+            <summary>
+            Local-space size of the widget before scale is applied.
+            </summary>
+        </member>
+        <member name="F:gdio.common.objects.FGeometry.Scale">
+            <summary>
+            DPI scale factor applied to the widget.
+            </summary>
+        </member>
+        <member name="T:gdio.common.lookup.HPathObject">
+            <summary>
+            Wrapper class that allows HierarchyPath strings to be passed as method arguments to game methods via api.CallMethod().
+            The Agent automatically resolves the HPath to the actual game object when the method is invoked.
+            </summary>
+            <remarks>
+            Use HPathObject when a game method expects a GameObject/UObject reference as a parameter.
+            This eliminates the need for custom serialization when passing object references between test code and the game.
+            </remarks>
+            <example>
+            <code>
+            // Game has a method: void ProcessTarget(GameObject target)
+            // Pass an object reference using HPathObject
+            api.CallMethod(
+                "//*[@name='GameManager']/fn:component('TargetSystem')",
+                "ProcessTarget",
+                new object[] { new HPathObject("//*[@name='Enemy']") }
+            );
+            </code>
+            </example>
+        </member>
+        <member name="F:gdio.common.lookup.HPathObject.HierarchyPath">
+            <summary>
+            The HierarchyPath that will be resolved to a game object when passed to a method.
+            </summary>
+        </member>
+        <member name="M:gdio.common.lookup.HPathObject.#ctor(System.String)">
+            <summary>
+            Creates a new HPathObject wrapper around a HierarchyPath string.
+            </summary>
+            <param name="hierarchyPath">The HierarchyPath to the game object that should be passed as a method argument.</param>
+        </member>
+        <member name="M:gdio.common.lookup.HPathObject.ToString">
+            <summary>
+            Returns the HierarchyPath as a string.
+            </summary>
+        </member>
+        <member name="T:gdio.common.lookup.ObjectRef">
+            <summary>
+            Represents a reference handle to an object object stored in the GameDriver Agent.
+            ObjectRefs allow you to maintain persistent references to objects across multiple API calls.
+            </summary> 
+            <remarks>
+            ObjectRefs are created using api.CreateObjectRef() and can be used in two ways:
+            1. Directly passed to API methods like api.GetObjectFieldValue(objectRef, "fieldName")
+            2. Within HPath queries using the fn:objectref() function: fn:objectref('{objectRef}')/@propertyName
+            
+            The actual object reference is stored on the Agent side, and the ObjectRef acts as a handle.
+            ObjectRefs should be removed with api.RemoveObjectRef() when no longer needed to free Agent-side resources.
+            </remarks> 
+            <example>
+            // Create ObjectRef from an HPath
+            var sliderRef = api.CreateObjectRef("//*[@name='Slider']/fn:component('UnityEngine.UI.Slider')");
+            
+            // Use directly with API methods
+            var value = api.GetObjectFieldValue&lt;float&gt;(sliderRef, "value");
+            
+            // Use within HPath queries
+            var value = api.GetObjectFieldValue&lt;float&gt;($"fn:objectref('{sliderRef}')/@value");
+            
+            // Clean up when done
+            api.RemoveObjectRef(sliderRef);
+            </example>
+        </member>
+        <member name="F:gdio.common.lookup.ObjectRef.Identifier">
+            <summary>
+            Unique identifier for this object reference. This is the handle used to look up 
+            the actual object on the Agent side. Generated automatically when the ObjectRef is created.
+            </summary>
+        </member>
+        <member name="F:gdio.common.lookup.ObjectRef.HPath">
+            <summary>
+            The HierarchyPath that was used to create this ObjectRef (if created via HPath).
+            Empty if the ObjectRef was created by instantiating a new object via Type or type name.
+            </summary>
+        </member>
+        <member name="M:gdio.common.lookup.ObjectRef.ToString">
+            <summary>
+            Returns the Identifier as a string, allowing the ObjectRef to be easily embedded 
+            in HPath queries and other string contexts.
+            </summary>
+        </member>
+    </members>
+</doc>

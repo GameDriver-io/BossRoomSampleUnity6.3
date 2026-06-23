@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/GDIO/Editor/UIToolkitExplorer.uss?fileID=7433441132597879392&amp;guid=754ca3c562a4c15489e8255a1a4e00e1&amp;type=3#UIToolkitExplorer" />
+    <ui:VisualElement style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 22px; margin-right: 22px; margin-bottom: 22px; margin-left: 22px; flex-wrap: nowrap; flex-grow: 1; flex-shrink: 0; flex-basis: 100%; height: auto; max-height: 1280px; min-width: 720px;">
+        <ui:VisualElement name="TopBar" style="height: 20px; flex-direction: row-reverse; min-height: auto; max-height: 720px;">
+            <uie:ToolbarToggle focusable="false" label="Highlight Off" value="false" name="HighlightToggle" class="gdio-searchbar" style="top: 4px; margin-left: 0; padding-top: 2px; width: 85px; -unity-text-align: middle-left;" />
+            <uie:ToolbarButton text="Next" display-tooltip-when-elided="true" name="NextButton" class="gdio-searchbar gdio-searchbar__button" />
+            <uie:ToolbarButton text="Prev" display-tooltip-when-elided="true" name="PrevButton" class="gdio-searchbar gdio-searchbar__button" />
+            <uie:ToolbarSearchField focusable="true" name="SearchField" tooltip="Supports prefixes n: and c: to lookup by name and/or classes. Example - n:PlayButton c:stylized-button,play-button (Cannot mix prefixed terms and non prefixed search terms)" class="gdio-searchbar" style="flex-direction: row; width: 45%;" />
+        </ui:VisualElement>
+        <ui:ScrollView name="Container" vertical-page-size="1" style="max-width: initial; flex-shrink: 0; width: 100%; height: auto; max-height: 80%; flex-grow: 1; flex-basis: 100%; min-width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; top: 25px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(38, 33, 33); border-right-color: rgb(38, 33, 33); border-top-color: rgb(38, 33, 33); border-bottom-color: rgb(38, 33, 33); min-height: 25%;">
+            <ui:Foldout text="Foldout" name="VisualTree" focusable="true" style="flex-direction: column; flex-shrink: 1; flex-grow: 0;" />
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>

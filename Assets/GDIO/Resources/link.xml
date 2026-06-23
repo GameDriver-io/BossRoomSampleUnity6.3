@@ -1,0 +1,18 @@
+<linker>
+    <assembly fullname="gdio_unity_agent" />
+    <assembly fullname="gdio.common.objects" />
+    <assembly fullname="gdio_unity_plugin" />
+    <assembly fullname="gdio.plugin.serializer" />	
+    <assembly fullname="gdio.unity_agent.HierarchyPathObjectResolver" preserve="all"/>
+    <assembly fullname="HierarchyPathObjectResolver.dll" preserve="all" />
+    <assembly fullname="UnityEngine.ImageConversionModule" preserve="all" />
+	<assembly fullname="MessagePack" preserve="all">
+		<type fullname="*" preserve="all"/> 		 		 		
+	</assembly>
+	<assembly fullname="UnityEngine.CoreModule">
+		<type fullname="UnityEngine.Transform" preserve="all" />
+	</assembly>	
+    <assembly fullname="MoonSharp.Interpreter">
+        <type fullname="MoonSharp.*" preserve="all" />
+    </assembly>
+</linker>

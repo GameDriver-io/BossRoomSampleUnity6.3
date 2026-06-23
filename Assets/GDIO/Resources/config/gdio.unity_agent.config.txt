@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config version="0.2">
+  <objectresolvers>
+    <resolver class="gdio.unity_agent.HierarchyPathObjectResolver" priority="0" />
+  </objectresolvers>
+  <buildflags>
+    <flag name="" />
+  </buildflags>
+  <mouseclickhighlight radius="3" frames="15" style="circle" color="1.0,0.0,0.0" doubleclick_block="true"/>
+  <xrsettings lefthand_model_offset="0.0,0.0,0.0,0.0,0.0,0.0" lefthand_pointer_offset="0.0,0.0,0.0,0.0,0.0,0.0" righthand_model_offset="0.0,0.0,0.0,0.0,0.0,0.0" righthand_pointer_offset="0.0,0.0,0.0,0.0,0.0,0.0"/>
+  <xrthresholds frames="1" axis_mag_thres="0.5" axis_angle_thres="10" pos_thres="0.1" rot_thres="0.05"/>
+  <recorder agg_buttons="false" agg_vec2="true" rem_vec2_time="0.0" rec_physics="false" rec_all_eyes="false" use_action_callback="false" frames_or_time="time" disable_mouse_sim_on_record="true" world_refs="XR Origin" local_refs="Camera Offset,LeftHand,RightHand"/>
+  <ongui_events enabled="true" show_mouse="true"/>
+  <hierarchypath primaryattribute="tag" />
+  <!-- x="10.0%" would place the X coordinate at 10% of the Screen.width in Unity -->
+  <infobox use_legacy="false" enabled="true" x="10.0" y ="10.0" font_size="11" font_type="" font_color="1.0,1.0,1.0,1.0" background_size="300.0,70.0" background_color="0.0,0.0,0.0,0.15"/>
+  <!-- When doing WaitForObjectValue, if comparing strings and the string ends with a U+200B, the unicode point will be ignored in the comparison.  Useful on TMP Input TextField -->
+  <unicode><ignoreZeroWidthSpace enabled="true"/></unicode>
+</config>
