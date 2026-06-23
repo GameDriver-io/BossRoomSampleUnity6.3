@@ -1,3 +1,4 @@
+#if false
 using gdio.unity_api.v2;
 
 namespace GameDriverBossRoomTests.Session1Lab2;
@@ -33,3 +34,4 @@ public class Session1Lab2_TestFixture
         Assert.That(/* YOUR CODE */);
     }
 }
+#endif
