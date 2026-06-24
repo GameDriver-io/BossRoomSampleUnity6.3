@@ -191,6 +191,8 @@ namespace Unity.BossRoom.Gameplay.UserInput
             m_ActionLayerMask = LayerMask.GetMask(new[] { "PCs", "NPCs", "Ground" });
 
             m_RaycastHitComparer = new RaycastHitComparer();
+
+            m_TargetAction.action.actionMap.Enable();
         }
 
         public override void OnNetworkDespawn()
@@ -216,6 +218,8 @@ namespace Unity.BossRoom.Gameplay.UserInput
             m_Action6.action.performed -= OnAction6Performed;
             m_Action7.action.performed -= OnAction7Performed;
             m_Action8.action.performed -= OnAction8Performed;
+
+            m_TargetAction.action.actionMap.Disable();
         }
 
         void OnTargetChanged(ulong previousValue, ulong newValue)
