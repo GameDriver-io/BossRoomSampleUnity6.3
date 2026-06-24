@@ -1,8 +1,8 @@
-namespace GameDriverBossRoomTests.Session1Lab2;
+namespace GameDriverBossRoomTests.Session1;
 
 public static class Game
 {
-    public static string GetLevelName() => "Campaign_Mission1";
+    public static string GetLevelName() => "Campaign_MissionMissing";
     
     public static int GetEnemyCount() => 5;
     

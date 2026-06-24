@@ -1,10 +1,10 @@
 #if false
 using gdio.unity_api.v2;
 
-namespace GameDriverBossRoomTests.Session1Lab2;
+namespace GameDriverBossRoomTests.Session1;
 
 [TestFixture]
-public class Session1Lab2_TestFixture
+public class Session1Lab2TestFixture
 {
 
     [OneTimeSetUp]
