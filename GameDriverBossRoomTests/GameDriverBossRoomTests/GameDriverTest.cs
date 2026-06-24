@@ -71,6 +71,10 @@ public abstract class GameDriverTest
     [OneTimeTearDown]
     public virtual void GameDriverOneTimeTearDown()
     {
-        try { api?.Disconnect(); } catch { /* best-effort */ }
+        try
+        {
+            api.StopEditorPlay();
+            api?.Disconnect();
+        } catch { /* best-effort */ }
     }
 }
