@@ -1,4 +1,4 @@
-namespace GameDriverBossRoomTests.Session1Lab2;
+namespace GameDriverBossRoomTests.Session1;
 
 public static class Game
 {
