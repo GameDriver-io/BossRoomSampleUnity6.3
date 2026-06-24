@@ -1,12 +1,5 @@
-.gdio-searchbar {
-    left: -26px;
-    min-height: 20px;
-}
-
 .gdio-searchbar__button {
     -unity-text-align: middle-left;
-    height: auto;
-    top: 4px;
     min-width: 40px;
 }
 
@@ -20,4 +13,8 @@ Foldout.gdio-highlight:hover > Toggle > .unity-foldout__input > Label.unity-fold
 
 .gdio-highlight-search {
     color: rgb(54, 136, 163);
+}
+
+.gdio-hide-members .gdio-members-foldout {
+    display: none;
 }
