@@ -422,11 +422,10 @@
       }
     },
     "jp.hadashikick.vcontainer": {
-      "version": "1.16.8",
+      "version": "file:jp.hadashikick.vcontainer",
       "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
+      "source": "embedded",
+      "dependencies": {}
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

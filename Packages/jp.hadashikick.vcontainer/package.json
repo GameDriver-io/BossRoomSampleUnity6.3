@@ -1,0 +1,20 @@
+{
+  "name": "jp.hadashikick.vcontainer",
+  "displayName": "VContainer",
+  "version": "1.16.8",
+  "unity": "2018.4",
+  "description": "The extra fast DI (Dependency Injection) for Unity",
+  "keywords": [
+    "DI",
+    "Dependency Injection",
+    "DI Container"
+  ],
+  "license": "MIT",
+  "documentationUrl": "https://vcontainer.hadashikick.jp/",
+  "changelogUrl": "https://github.com/hadashiA/VContainer/releases",
+  "licensesUrl": "https://github.com/hadashiA/VContainer/blob/master/LICENSE",
+  "publishConfig": {
+    "registry": "https://package.openupm.com"
+  },
+  "_fingerprint": "94276e73bc7c306734ad8eb1c0c71e6da6ab04b7"
+}
