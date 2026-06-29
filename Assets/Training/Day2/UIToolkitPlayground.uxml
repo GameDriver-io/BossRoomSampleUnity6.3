@@ -1,0 +1,40 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="UIToolkitPlayground.uss" />
+    <ui:VisualElement name="root-container" class="root">
+        <ui:Label name="title-label" text="GameDriver Day 2 — UI Toolkit Playground" class="title" />
+        <ui:Label name="subtitle-label" text="Use UIToolkit Explorer to find elements and copy HPath expressions" class="subtitle" />
+
+        <ui:VisualElement name="main-menu" class="section">
+            <ui:Label name="main-menu-header" text="Main Menu" class="section-header" />
+            <ui:VisualElement name="button-row" class="button-row">
+                <ui:Button name="start-button" text="Start Game" class="menu-button primary" />
+                <ui:Button name="settings-button" text="Settings" class="menu-button" />
+                <ui:Button name="credits-button" text="Credits" class="menu-button" />
+                <ui:Button name="quit-button" text="Quit" class="menu-button danger" />
+            </ui:VisualElement>
+            <ui:Label name="status-label" text="— Press a button —" class="status-hint" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="player-settings" class="section">
+            <ui:Label name="settings-header" text="Player Settings" class="section-header" />
+            <ui:TextField name="player-name-field" label="Player Name:" value="Hero" class="input-field" />
+            <ui:Toggle name="music-toggle" label="Music Enabled" value="true" class="toggle" />
+            <ui:Toggle name="sfx-toggle" label="SFX Enabled" value="true" class="toggle" />
+            <ui:Toggle name="fullscreen-toggle" label="Fullscreen" value="false" class="toggle" />
+            <ui:Slider name="volume-slider" label="Master Volume" low-value="0" high-value="100" value="75" class="slider" />
+            <ui:Slider name="brightness-slider" label="Brightness" low-value="0" high-value="100" value="50" class="slider" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="player-status" class="section">
+            <ui:Label name="status-header" text="Player Status" class="section-header" />
+            <ui:Label name="score-label" text="Score: 1250" class="status-value" />
+            <ui:Label name="health-label" text="Health: 85 / 100" class="status-value" />
+            <ui:ProgressBar name="health-bar" value="85" title="HP" class="progress" />
+            <ui:ProgressBar name="xp-bar" value="42" title="XP" class="progress" />
+            <ui:VisualElement name="action-row" class="button-row">
+                <ui:Button name="add-score-button" text="+100 Score" class="action-button" />
+                <ui:Button name="reset-score-button" text="Reset Score" class="action-button danger" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,106 @@
+.root {
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgb(30, 30, 46);
+    flex-grow: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.title {
+    font-size: 32px;
+    color: rgb(203, 166, 247);
+    -unity-font-style: bold;
+    margin-bottom: 4px;
+}
+.subtitle {
+    font-size: 16px;
+    color: rgb(148, 148, 166);
+    margin-bottom: 16px;
+}
+.section {
+    background-color: rgb(49, 50, 68);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+.section-header {
+    font-size: 22px;
+    color: rgb(137, 220, 235);
+    -unity-font-style: bold;
+    margin-bottom: 12px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(88, 91, 112);
+    padding-bottom: 8px;
+}
+.button-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.menu-button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 10px 24px;
+    background-color: rgb(69, 71, 90);
+    border-color: rgb(88, 91, 112);
+    color: rgb(205, 214, 244);
+    border-radius: 4px;
+    font-size: 16px;
+}
+.menu-button.primary {
+    background-color: rgb(166, 227, 161);
+    color: rgb(30, 30, 46);
+    -unity-font-style: bold;
+}
+.menu-button.danger {
+    background-color: rgb(243, 139, 168);
+    color: rgb(30, 30, 46);
+}
+.status-hint {
+    color: rgb(148, 148, 166);
+    font-size: 15px;
+    margin-top: 4px;
+}
+.input-field {
+    margin-bottom: 10px;
+    color: rgb(205, 214, 244);
+    font-size: 16px;
+}
+.input-field .unity-base-field__input .unity-text-element {
+    color: rgb(30, 30, 46);
+}
+.toggle {
+    margin-bottom: 8px;
+    color: rgb(205, 214, 244);
+    font-size: 16px;
+}
+.slider {
+    margin-bottom: 10px;
+    color: rgb(205, 214, 244);
+    font-size: 16px;
+}
+.status-value {
+    color: rgb(205, 214, 244);
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+.progress {
+    margin-bottom: 10px;
+}
+.action-button {
+    margin-right: 8px;
+    margin-top: 8px;
+    background-color: rgb(250, 179, 135);
+    color: rgb(30, 30, 46);
+    border-radius: 4px;
+    padding: 8px 18px;
+    font-size: 16px;
+    -unity-font-style: bold;
+}
+.action-button.danger {
+    background-color: rgb(243, 139, 168);
+    color: rgb(30, 30, 46);
+}
