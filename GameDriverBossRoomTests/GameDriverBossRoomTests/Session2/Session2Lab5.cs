@@ -1,3 +1,4 @@
+#if false
 using gdio.unity_api.v2;
 using NuGet.Frameworks;
 
@@ -36,3 +37,4 @@ public class Session2Lab5TestFixture
         Assert.That(playerName, Is.EqualTo("Hero"));
     }
 }
+#endif

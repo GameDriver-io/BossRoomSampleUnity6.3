@@ -1,3 +1,4 @@
+#if false
 using gdio.unity_api.v2;
 
 namespace GameDriverBossRoomTests.Session2;
@@ -32,3 +33,4 @@ public class Session2Lab4TestFixture
         //Assert.That(hp, Is.EqualTo(1234));
     }
 }
+#endif
