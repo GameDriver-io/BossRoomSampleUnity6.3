@@ -80,7 +80,7 @@ public class BossRoomSmokeTest : GameDriverTest
     {
         api.ClickObject(MouseButtons.LEFT, "//Test_Next", 1);
         api.WaitForEmptyInput();
-        
+
         while (api.GetObjectFieldValue<float>("/*[@name='LoadingScreen']/fn:component('UnityEngine.CanvasGroup')",
                    "alpha", 1)
                < 0.5f)
@@ -93,12 +93,7 @@ public class BossRoomSmokeTest : GameDriverTest
             api.Wait(500);
         }
         
-        while (api.GetObjectFieldValue<float>("/*[@name='LoadingScreen']/fn:component('UnityEngine.CanvasGroup')",
-                   "alpha", 1)
-               > 0)
-        {
-            api.Wait(200);
-        }
+        api.WaitForObjectValue("/*[@name='LoadingScreen']/fn:component('UnityEngine.CanvasGroup')", "alpha", 0f);
         
         // hide the cheats panel
         api.SetObjectFieldValue("//*[@name='CheatsPopupPanel']", "active", false);
@@ -108,6 +103,23 @@ public class BossRoomSmokeTest : GameDriverTest
         api.Wait(1000);
         
         AssertThatLogsHaveNoErrors();
+    }
+
+    [Test, Order(050)]
+    public void T050_GivenIdleGame_WhenClickingToMove_CharacterPositionChanges()
+    {
+        var playerScreenPos = api.GetObjectPosition("//Player", CoordinateConversion.WorldToScreenPoint);
+        var playerStartPos = api.GetObjectPosition("//Player");
+
+        Vector2 toTheRight = new Vector2(playerScreenPos.x+200, playerScreenPos.y);
+        api.Click(toTheRight, MouseButtons.LEFT, 10);
+        
+        api.Wait(500);
+        
+        var playerNewPosition = api.GetObjectPosition("//Player");
+        float distanceTravelled = Vector3.Distance(playerNewPosition, playerStartPos);
+        
+        Assert.That(distanceTravelled, Is.GreaterThan(0.25f));
     }
     
     private void OnUnityLog(object? sender, UnityLogEventEventArgs args)
