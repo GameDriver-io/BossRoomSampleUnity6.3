@@ -121,6 +121,25 @@ public class BossRoomSmokeTests : GameDriverTest
         
         Assert.That(distanceTravelled, Is.GreaterThan(0.25f));
     }
+
+    [Test, Order(060)]
+    public void T060_GivenIdleGame_ReturnToMainMenu_NoErrorsInLog()
+    {
+        api.CallMethod(
+            "/*[fn:component('Unity.BossRoom.Gameplay.UI.UISettingsCanvas')][0]//fn:component('Unity.BossRoom.Gameplay.UI.UIQuitPanel')",
+            "Quit");
+        
+        while (api.GetSceneName() == "BossRoom")
+        {
+            api.Wait(500);
+        }
+        
+        api.WaitForObjectValue("/*[@name='LoadingScreen']/fn:component('UnityEngine.CanvasGroup')", "alpha", 0f);
+        
+        api.Wait(1000);
+        
+        AssertThatLogsHaveNoErrors();
+    }
     
     private void OnUnityLog(object? sender, UnityLogEventEventArgs args)
     {
