@@ -18,10 +18,10 @@ public abstract class GameDriverTest
     
     // Override these properties in your subclass if you need
     // to hardcode values instead of using environment variables.
-    protected virtual string Host =>
+    public static string Host =>
         Environment.GetEnvironmentVariable("GDIO_HOST") ?? "localhost";
 
-    protected virtual int Port =>
+    public static int Port =>
         int.TryParse(Environment.GetEnvironmentVariable("GDIO_PORT"), out var p) ? p : 19002;
 
     [OneTimeSetUp]
@@ -36,7 +36,6 @@ public abstract class GameDriverTest
     {
         try
         {
-            api.StopEditorPlay();
             api?.Disconnect();
         } catch { /* best-effort */ }
     }
