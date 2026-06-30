@@ -5,21 +5,17 @@ namespace GameDriverBossRoomTests;
 [SetUpFixture]
 public class GameDriverConnection
 {
-    private readonly ApiClient api = new();
-    
-    [OneTimeSetUp]
-    public void BeforeAllFixtures()
-    {
-        api.Connect(GameDriverTest.Host, GameDriverTest.Port, true, 30);
-    }
-
     [OneTimeTearDown]
     public void AfterAllFixtures()
     {
+        var api = new ApiClient();
         try
         {
+            // we're connecting just to call StopEditorPlay
+            api.Connect(GameDriverTest.Host, GameDriverTest.Port, true);
             api.StopEditorPlay();
             api?.Disconnect();
-        } catch { /* best-effort */ }
+        }
+        catch (Exception) { /* best-effort */ }
     }
 }
