@@ -7,6 +7,11 @@ public class BossRoomSmokeTest : GameDriverTest
 {
     private bool isConsoleError;
     private readonly List<string> outputs = new();
+    private void AssertThatLogsHaveNoErrors()
+    {
+        Console.WriteLine(string.Join("\n", outputs));
+        Assert.That(isConsoleError, Is.False);
+    }
     
     [OneTimeSetUp]
     public void InitLogging()
@@ -35,8 +40,8 @@ public class BossRoomSmokeTest : GameDriverTest
     public void T010_GivenBootedToMenu_WhenCheckLogs_NoErrors()
     {
         api.Wait(500);
-        Console.WriteLine(string.Join("\n", outputs));
-        Assert.That(isConsoleError, Is.False);
+        
+        AssertThatLogsHaveNoErrors();
     }
 
     [Test, Order(020)]
@@ -51,8 +56,7 @@ public class BossRoomSmokeTest : GameDriverTest
         
         api.Wait(1000);
         
-        Console.WriteLine(string.Join("\n", outputs));
-        Assert.That(isConsoleError, Is.False);
+        AssertThatLogsHaveNoErrors();
     }
 
     [Test, Order(030)]
@@ -63,13 +67,49 @@ public class BossRoomSmokeTest : GameDriverTest
             "/*[contains(.,fn:type('Unity.Multiplayer.Tools.NetworkSimulator.Runtime.NetworkSimulator'))][0]//fn:component('Unity.BossRoom.Utils.NetworkSimulatorUIMediator')",
             "Hide");
 
-        api.ClickObject(MouseButtons.LEFT, "//Test_CharSelectSeat[0]//*[contains(.,fn:type('UnityEngine.UI.Button'))]", 30);
+        api.ClickObject(MouseButtons.LEFT, "//Test_CharSelectSeat[0]//*[contains(.,fn:type('UnityEngine.UI.Button'))]", 1);
         api.WaitForEmptyInput();
         
-        Console.WriteLine(string.Join("\n", outputs));
-        Assert.That(isConsoleError, Is.False);
+        api.Wait(1000);
+        
+        AssertThatLogsHaveNoErrors();
     }
 
+    [Test, Order(040)]
+    public void T040_GivenSelectedCharInLobby_WhenStartingGame_EntersGameplayWithNoErrors()
+    {
+        api.ClickObject(MouseButtons.LEFT, "//Test_Next", 1);
+        api.WaitForEmptyInput();
+        
+        while (api.GetObjectFieldValue<float>("/*[@name='LoadingScreen']/fn:component('UnityEngine.CanvasGroup')",
+                   "alpha", 1)
+               < 0.5f)
+        {
+            api.Wait(200);
+        }
+        
+        while (api.GetSceneName() != "BossRoom")
+        {
+            api.Wait(500);
+        }
+        
+        while (api.GetObjectFieldValue<float>("/*[@name='LoadingScreen']/fn:component('UnityEngine.CanvasGroup')",
+                   "alpha", 1)
+               > 0)
+        {
+            api.Wait(200);
+        }
+        
+        // hide the cheats panel
+        api.SetObjectFieldValue("//*[@name='CheatsPopupPanel']", "active", false);
+        // also the how to play. these are both how the close buttons work directly.
+        api.SetObjectFieldValue("//*[@name='HowToPlayPopupPanel']", "active", false);
+        
+        api.Wait(1000);
+        
+        AssertThatLogsHaveNoErrors();
+    }
+    
     private void OnUnityLog(object? sender, UnityLogEventEventArgs args)
     {
         isConsoleError |= args.type is LogType.Error or LogType.Exception or LogType.Assert;
