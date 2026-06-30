@@ -3,7 +3,7 @@
 namespace GameDriverBossRoomTests.Session3;
 
 [TestFixture]
-public class BossRoomSmokeTest : GameDriverTest
+public class BossRoomSmokeTests : GameDriverTest
 {
     private bool isConsoleError;
     private readonly List<string> outputs = new();
