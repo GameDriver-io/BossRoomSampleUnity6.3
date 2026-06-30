@@ -22,7 +22,7 @@ public abstract class GameDriverTest
         Environment.GetEnvironmentVariable("GDIO_HOST") ?? "localhost";
 
     public static int Port =>
-        int.TryParse(Environment.GetEnvironmentVariable("GDIO_PORT"), out var p) ? p : 19002;
+        int.TryParse(Environment.GetEnvironmentVariable("GDIO_PORT"), out var p) ? p : 19734;
 
     [OneTimeSetUp]
     public virtual void GameDriverOneTimeSetUp()
