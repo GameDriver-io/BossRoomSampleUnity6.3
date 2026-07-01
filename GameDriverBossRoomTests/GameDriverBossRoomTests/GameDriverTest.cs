@@ -4,13 +4,12 @@ using NUnit.Framework.Interfaces;
 namespace GameDriverBossRoomTests;
 
 /// <summary>
-/// Base class for all GameDriver Unreal tests.
-/// Inherit from this to get automatic connect/disconnect and
-/// failure screenshots with zero boilerplate.
+/// Base class for all GameDriver tests.
+/// Inherit from this to get automatic connect/disconnect
 ///
 /// Configuration (set as environment variables or override the properties):
 ///   GDIO_HOST  — game host (default: localhost)
-///   GDIO_PORT  — game port (default: 19002)
+///   GDIO_PORT  — game port (default: 19734)
 /// </summary>
 public abstract class GameDriverTest
 {
