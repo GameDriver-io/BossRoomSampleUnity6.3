@@ -35,6 +35,9 @@ public class MultiplayerTests : GameDriverTest
     [OneTimeTearDown]
     public void DisconnectP2AndCleanupLogging()
     {
+        // server back to main menu for next test
+        BossRoomNavigators.QuitGameplayToMainMenu(api);
+        
         apiP2.Disconnect();
         // Kill the standalone build process
         standaloneProcess?.Kill();

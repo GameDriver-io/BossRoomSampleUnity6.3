@@ -139,4 +139,14 @@ public static class BossRoomNavigators
         // todo: can I count /Player from a hpath? 
         server.WaitForObject($"/Player[{expectedPlayerCount - 1}]");
     }
+
+    public static void QuitGameplayToMainMenu(ApiClient api)
+    {
+        Assert.That(api, Is.Not.Null);
+        
+        api.CallMethod(
+            "/*[fn:component('Unity.BossRoom.Gameplay.UI.UISettingsCanvas')][0]//fn:component('Unity.BossRoom.Gameplay.UI.UIQuitPanel')",
+            "Quit");
+        WaitUntilLeftScene(api, "BossRoom");
+    }
 }
