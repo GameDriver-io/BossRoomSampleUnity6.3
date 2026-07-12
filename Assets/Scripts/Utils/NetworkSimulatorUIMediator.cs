@@ -100,7 +100,7 @@ namespace Unity.BossRoom.Utils
         {
             if (m_NetworkSimulator.IsAvailable)
             {
-                Show();
+                //Show();
             }
         }
 
