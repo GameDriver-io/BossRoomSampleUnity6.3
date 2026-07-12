@@ -36,6 +36,8 @@
     <ItemGroup>
       <!-- QaaS results reporter: uploads this run's outcomes to the QaaS ingest endpoint. -->
       <ProjectReference Include="..\..\..\gdio.qaas.reporter\gdio.qaas.reporter\gdio.qaas.reporter.csproj" />
+      <!-- Coverage X-Ray: local test-coverage gap analysis (RecordingApiClient + XRay.Capture). -->
+      <ProjectReference Include="..\..\..\gdio.qaas.coverage\gdio.qaas.coverage\gdio.qaas.coverage.csproj" />
     </ItemGroup>
 
 </Project>
