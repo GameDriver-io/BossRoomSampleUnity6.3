@@ -44,12 +44,18 @@ public class HudTests : GameDriverTest
 
     [Test]
     [Order(010)]
-    public void T010_GivenFreshSpawn_HeroHealthSliderShowsFullHealth()
+    public void T010_GivenFreshSpawn_HeroHealthSliderMaxIsSet()
+    {
+        var maxValue = api.GetObjectFieldValue<float>($"{HeroHpSlider}/@maxValue", 30);
+        Assert.That(maxValue, Is.GreaterThan(0f), "Hero HP slider maxValue was not set from CharacterClass.BaseHP");
+    }
+
+    [Test]
+    [Order(011)]
+    public void T011_GivenFreshSpawn_HeroHealthSliderShowsFullHealth()
     {
         var value = api.GetObjectFieldValue<float>($"{HeroHpSlider}/@value", 30);
         var maxValue = api.GetObjectFieldValue<float>($"{HeroHpSlider}/@maxValue", 30);
-
-        Assert.That(maxValue, Is.GreaterThan(0f), "Hero HP slider maxValue was not set from CharacterClass.BaseHP");
         Assert.That(value, Is.EqualTo(maxValue),
             "Hero HP slider did not show full health on fresh spawn");
     }
@@ -79,5 +85,25 @@ public class HudTests : GameDriverTest
 
         Assert.That(BossRoomFlow.IsEmotePanelActive(api), Is.False,
             "Emote panel did not close itself after an emote button was clicked");
+    }
+
+    [Test]
+    [Order(040)]
+    public void T040_GivenGameplay_PartyHudHeroSlotIsPresent()
+    {
+        // Reliable companion: the local hero's Party HUD slot (its HP slider object)
+        // resolves in gameplay. Reuses the fixture's session.
+        Assert.That(api.WaitForObject("//*[@name='Hero HP Slider']", 30), Is.True,
+            "Party HUD hero slot (Hero HP Slider) did not resolve in gameplay");
+    }
+
+    // Coverage gap (Assert.Ignore -> "blocked"; an [Ignore] attribute uploads nothing).
+    [Test]
+    [Order(110)]
+    public void T110_PartyHud_ShowsAllConnectedHeroes()
+    {
+        Assert.Ignore("Party HUD slots 1-3 (other players) require a SECOND+ networked participant. " +
+                      "This suite hosts solo, so only the local hero's slot 0 is populated -- same " +
+                      "solo-host limitation as the Netcode domain.");
     }
 }

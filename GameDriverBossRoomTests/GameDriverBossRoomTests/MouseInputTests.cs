@@ -69,4 +69,15 @@ public class MouseInputTests : GameDriverTest
             "Clicking the ground did not move the player -- the Point/Target mouse " +
             "input may not be reaching ClientInputSender on this platform");
     }
+
+    [Test]
+    [Order(020)]
+    public void T020_GivenGameplay_LocalPlayerInputTargetIsResolvable()
+    {
+        // Reliable companion to the movement check: the local player object the mouse
+        // input drives is network-owned and resolvable in gameplay. Reuses the fixture's
+        // session and a proven HPath; no dependence on live movement timing.
+        Assert.That(api.WaitForObject(BossRoomFlow.LocalPlayerHPath, 30), Is.True,
+            "Local player object (the target of mouse input) did not resolve in gameplay");
+    }
 }

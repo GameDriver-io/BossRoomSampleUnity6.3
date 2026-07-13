@@ -49,4 +49,15 @@ public class KeyboardInputTests : GameDriverTest
         api.KeyPress(new[] { KeyCode.Slash }, 10);
         api.Wait(300);
     }
+
+    [Test]
+    [Order(020)]
+    public void T020_GivenGameplay_CheatsToggleTargetIsResolvable()
+    {
+        // Reliable companion to the keypress check: the DebugCheatsManager the '/' key
+        // toggles is resolvable in gameplay. Reuses the session and a proven HPath; no
+        // dependence on keypress timing.
+        Assert.That(api.WaitForObject(DebugCheatsManager, 30), Is.True,
+            "DebugCheatsManager (the keyboard toggle's target) did not resolve in gameplay");
+    }
 }

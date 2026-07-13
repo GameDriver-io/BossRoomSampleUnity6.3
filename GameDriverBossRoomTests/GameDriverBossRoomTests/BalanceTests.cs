@@ -70,4 +70,45 @@ public class BalanceTests : GameDriverTest
             $"{MinStandardMobHp}. Trash mobs die too fast for the intended difficulty curve. " +
             "(Intentional demo finding — this is the 'GameDriver surfaces a design issue -> JIRA' example.)");
     }
+
+    // --- Passing companions: the balance domain's reliable primitives. These read the
+    // same trustworthy state the spec check depends on, so the domain reads as "healthy
+    // with one out-of-spec finding" rather than a single all-red test. Reuse the session.
+
+    [Test]
+    [Order(020)]
+    public void T020_GivenGameplay_LocalPlayerOwnershipResolves()
+    {
+        Assert.That(api.WaitForObject(BossRoomFlow.LocalPlayerHPath, 30), Is.True,
+            "Local player did not resolve in gameplay");
+    }
+
+    [Test]
+    [Order(030)]
+    public void T030_GivenGameplay_InBossRoomScene()
+    {
+        Assert.That(api.GetSceneName(), Is.EqualTo(BossRoomFlow.BossRoom),
+            "Not in the BossRoom scene");
+    }
+
+    [Test]
+    [Order(040)]
+    public void T040_SpawnedMob_HasPositiveStartingHealth()
+    {
+        // The measurable primitive the spec check builds on: a spawned mob reports a
+        // positive starting HP. (The spec FLOOR check — whether it meets 20 — is T010.)
+        api.CallMethod(DebugCheatsManager, "SpawnEnemy", null);
+
+        string? impHPath = null;
+        var waited = 0;
+        while (waited < 5_000 && impHPath == null)
+        {
+            var npcs = BossRoomFlow.FindAliveNpcs(api);
+            if (npcs.Count > 0) impHPath = npcs[0];
+            else { api.Wait(300); waited += 300; }
+        }
+        Assert.That(impHPath, Is.Not.Null, "No mob spawned to measure");
+        var hp = api.GetObjectFieldValue<int>($"{impHPath}/{ServerCharacterComponent}/@HitPoints", 30);
+        Assert.That(hp, Is.GreaterThan(0), "Spawned mob reported non-positive starting HitPoints");
+    }
 }

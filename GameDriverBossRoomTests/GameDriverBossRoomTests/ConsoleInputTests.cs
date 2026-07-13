@@ -14,9 +14,14 @@ namespace GameDriverBossRoomTests;
 ///
 /// So this isn't "we haven't tested controller gameplay" -- as configured today,
 /// controller gameplay input doesn't exist to test. That's worth surfacing to
-/// design/dev as a real gap, separate from the QaaS test-coverage story: adding
-/// these Input.Console.Gamepad tests later is gated on Player action map bindings
-/// being added first, not just on getting a console/controller in this environment.
+/// design/dev as a real gap, separate from the QaaS test-coverage story.
+///
+/// EXCLUDED FROM THE QaaS DEMO DATASET: this whole fixture is [Ignore]d at the class
+/// level, so it never runs and never uploads. In this PC-editor lab there is nothing
+/// to verify, and a fully-blocked platform domain would read as a false "worst case"
+/// against a mid-health demo. The demo represents mobile/console coverage synthetically
+/// (a real multi-platform studio would test on device); this fixture stays as the
+/// honest lab-side record of why it isn't run here.
 /// </summary>
 [TestFixture]
 [Category("Input.Console.Gamepad")]

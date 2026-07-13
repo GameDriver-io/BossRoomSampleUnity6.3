@@ -64,10 +64,16 @@ public class CombatTests : GameDriverTest
 
     [Test]
     [Order(010)]
-    public void T010_GivenGameplay_ActionButtonsAreActiveAndInteractable()
+    public void T010_GivenGameplay_BasicActionButtonIsActive()
     {
         Assert.That(api.GetObjectFieldValue<bool>($"{BossRoomFlow.BasicActionButton}/@activeSelf", 30), Is.True,
             "Basic Action button was not active");
+    }
+
+    [Test]
+    [Order(011)]
+    public void T011_GivenGameplay_BasicActionButtonIsInteractable()
+    {
         // "interactable" is a property of the Button component, not the GameObject --
         // /@activeSelf resolves directly on the GameObject reference (that's valid),
         // but /@interactable needs an explicit component chain or the Agent can't
@@ -75,9 +81,20 @@ public class CombatTests : GameDriverTest
         Assert.That(api.GetObjectFieldValue<bool>(
                 $"{BossRoomFlow.BasicActionButton}/fn:component('UnityEngine.UI.Button')/@interactable", 30),
             Is.True, "Basic Action button was not interactable");
+    }
 
+    [Test]
+    [Order(012)]
+    public void T012_GivenGameplay_Special1ButtonIsActive()
+    {
         Assert.That(api.GetObjectFieldValue<bool>($"{BossRoomFlow.Special1Button}/@activeSelf", 30), Is.True,
             "Special 1 button was not active");
+    }
+
+    [Test]
+    [Order(013)]
+    public void T013_GivenGameplay_Special2ButtonIsActive()
+    {
         Assert.That(api.GetObjectFieldValue<bool>($"{BossRoomFlow.Special2Button}/@activeSelf", 30), Is.True,
             "Special 2 button was not active");
     }
@@ -111,5 +128,22 @@ public class CombatTests : GameDriverTest
         if (sawConsoleError)
             Console.WriteLine(string.Join("\n", logs));
         Assert.That(sawConsoleError, Is.False);
+    }
+
+    // =======================================================================
+    //  Coverage gaps -- per-class ability kits (see fixture doc's COVERAGE GAP).
+    //  OneTimeSetUp only enters as Tank; Archer/Mage/Rogue each have DIFFERENT
+    //  Special1/Special2 actions, so Tank passing does not cover them. Skipped at
+    //  RUNTIME with Assert.Ignore -> reported "blocked" (an [Ignore] ATTRIBUTE
+    //  would upload nothing: the reporter's live ITestAction never fires for it).
+    // =======================================================================
+
+    [Test]
+    [Order(110)]
+    public void T110_NonTankAbilityKits_ButtonsWireUpAndFire()
+    {
+        Assert.Ignore("Only Tank is exercised here. Archer/Mage/Rogue each have a DIFFERENT " +
+                      "Special1/Special2 kit (actions + cooldowns); a per-class roll-in for the " +
+                      "action bar isn't built yet. One representative coverage gap for this domain.");
     }
 }

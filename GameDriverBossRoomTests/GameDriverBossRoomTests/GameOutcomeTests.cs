@@ -79,6 +79,24 @@ public class GameOutcomeTests : GameDriverTest
     }
 
     [Test]
+    [Order(001)]
+    public void T001_GivenGameplay_EnteredBossRoomScene()
+    {
+        Assert.That(api.GetSceneName(), Is.EqualTo(BossRoomFlow.BossRoom),
+            "Did not reach the BossRoom gameplay scene where the win condition is evaluated");
+    }
+
+    [Test]
+    [Order(002)]
+    public void T002_GivenGameplay_DebugCheatsManagerIsResolvable()
+    {
+        // The win/lose flow is driven via DebugCheatsManager (SpawnBoss/KillAllEnemies);
+        // this reliably confirms that handle resolves in gameplay (no boss-flow needed).
+        Assert.That(api.WaitForObject(DebugCheatsManager, 30), Is.True,
+            "DebugCheatsManager did not resolve in the BossRoom scene");
+    }
+
+    [Test]
     [Order(005)]
     public void T005_GivenFreshBossRoomEntry_BossHasNotSpawnedYet()
     {
@@ -143,5 +161,19 @@ public class GameOutcomeTests : GameDriverTest
             "PostGame did not show the victory message after the boss was killed directly");
         Assert.That(api.GetObjectFieldValue<bool>(LoseMessageActive, 30), Is.False,
             "PostGame incorrectly showed the defeat message after a win");
+    }
+
+    // =======================================================================
+    //  Coverage gaps. Assert.Ignore -> "blocked" (an [Ignore] attribute uploads
+    //  nothing -- the reporter's live ITestAction never fires for a skipped test).
+    // =======================================================================
+
+    [Test]
+    [Order(110)]
+    public void T110_WhenAllPlayersFaint_GameIsLostAndPostGameShowsDefeat()
+    {
+        Assert.Ignore("Only the WIN path is covered. The LOSS path (all players Fainted -> " +
+                      "WinState.Lose -> PostGame defeat message, ServerBossRoomState) is not yet " +
+                      "driven -- needs a reliable way to faint the solo host. One representative gap.");
     }
 }

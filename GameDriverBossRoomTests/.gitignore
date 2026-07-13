@@ -64,3 +64,9 @@ nunit-*.xml
 
 !*.sln
 !*.csproj
+
+# QaaS staging reporter secret (local only, never commit)
+.env.qaas-staging
+
+# QaaS staging test env-vars (holds the API key) — local only
+qaas-staging.runsettings

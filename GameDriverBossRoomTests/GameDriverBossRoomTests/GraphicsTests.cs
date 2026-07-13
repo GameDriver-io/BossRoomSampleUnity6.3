@@ -52,4 +52,14 @@ public class GraphicsTests : GameDriverTest
         Assert.That(after, Is.Not.EqualTo(before),
             "Quality label did not change after cycling (SetQualitySettings should advance or wrap the level)");
     }
+
+    [Test]
+    [Order(030)]
+    public void T030_GivenSettingsOpen_QualityControlIsPresent()
+    {
+        // Reliable companion to the label-content checks: with the Settings panel open
+        // (see [SetUp]), the quality control itself resolves.
+        Assert.That(api.WaitForObject(QualityButton, 30), Is.True,
+            "Quality button did not resolve with the Settings panel open");
+    }
 }

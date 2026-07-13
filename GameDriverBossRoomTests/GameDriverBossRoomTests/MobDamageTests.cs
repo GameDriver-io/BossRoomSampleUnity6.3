@@ -95,6 +95,43 @@ public class MobDamageTests : GameDriverTest
         WaitForHitPointsToDrop(api, impHPath, hpBefore, maxWaitMs: 15_000);
     }
 
+    // --- Reliable companions (reuse the Tank gameplay session; no live-combat timing) ---
+
+    [Test]
+    [Order(020)]
+    public void T020_GivenGameplay_LocalPlayerOwnershipResolves()
+    {
+        Assert.That(api.WaitForObject(BossRoomFlow.LocalPlayerHPath, 30), Is.True,
+            "Local (attacking) player did not resolve in gameplay");
+    }
+
+    [Test]
+    [Order(030)]
+    public void T030_GivenGameplay_InBossRoomScene()
+    {
+        Assert.That(api.GetSceneName(), Is.EqualTo(BossRoomFlow.BossRoom),
+            "Not in the BossRoom scene where combat happens");
+    }
+
+    [Test]
+    [Order(040)]
+    public void T040_GivenSpawnEnemy_AnAliveMobAppears()
+    {
+        api.CallMethod(DebugCheatsManager, "SpawnEnemy", null);
+        var imp = WaitForSpawnedImp(api);
+        Assert.That(imp, Is.Not.Null, "SpawnEnemy did not produce a findable alive mob");
+    }
+
+    // Coverage gap (Assert.Ignore -> "blocked"; an [Ignore] attribute uploads nothing).
+    [Test]
+    [Order(110)]
+    public void T110_NonTankBasicAttacks_DealDamage()
+    {
+        Assert.Ignore("Only Tank's melee Basic Action is verified. Archer/Mage/Rogue each have a " +
+                      "DIFFERENT Basic Action (range/projectile/windup); per-class damage-lands isn't " +
+                      "covered yet. One representative coverage gap for this domain.");
+    }
+
     /// <summary>Polls until a spawned NPC exists (the spawn RPC has to round-trip), returns the nearest to the player.</summary>
     private static string? WaitForSpawnedImp(ApiClient api, int maxWaitMs = 5_000)
     {

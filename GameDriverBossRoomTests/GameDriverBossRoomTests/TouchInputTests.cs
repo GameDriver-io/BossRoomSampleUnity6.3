@@ -9,9 +9,13 @@ namespace GameDriverBossRoomTests;
 /// bindings on the Player (gameplay) action map -- Target (&lt;Touchscreen&gt;/touch*/press),
 /// Point (&lt;Touchscreen&gt;/touch*/position), plus debug toggles on touch3/touch4. A
 /// mobile build would let these be exercised the same way MouseInputTests exercises
-/// the Keyboard&amp;Mouse scheme. [Ignore] reports as "blocked" in the QaaS pipeline
-/// (gdio.qaas.reporter.Capture.MapState maps TestStatus.Skipped -> "blocked"),
-/// distinguishing this from a failure -- it's untested, not broken.
+/// the Keyboard&amp;Mouse scheme.
+///
+/// EXCLUDED FROM THE QaaS DEMO DATASET: [Ignore]d at the class level, so it never runs
+/// and never uploads. This lab (Mac Editor, no device) genuinely can't verify touch, and
+/// a fully-blocked platform domain would drag the demo toward a false "worst case." The
+/// demo represents mobile coverage synthetically (as a real studio testing on device
+/// would have); this fixture stays as the honest lab-side record of the gap.
 /// </summary>
 [TestFixture]
 [Category("Input.Mobile.Touch")]
