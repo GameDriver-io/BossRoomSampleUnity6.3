@@ -1,3 +1,4 @@
+// QaaS Blast Radius demo touch (comment-only): multi-domain attribution check (Balance / Combat.MobDamage / Netcode).
 using System;
 using System.Collections;
 using Unity.BossRoom.ConnectionManagement;

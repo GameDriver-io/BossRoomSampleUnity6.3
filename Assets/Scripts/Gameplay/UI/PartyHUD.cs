@@ -1,3 +1,4 @@
+// QaaS Blast Radius demo touch (comment-only): HUD domain attribution check.
 using System;
 using System.Collections.Generic;
 using Unity.BossRoom.Gameplay.UserInput;
