@@ -90,3 +90,4 @@ InitCodeMarker
 
 # GDIO License
 /[Aa]ssets/GDIO/[Rr]esources/gdio.license*
+.utmp
